@@ -1,0 +1,250 @@
+.body__page-item {
+	min-height: 100%;
+	height: 100%;
+	background-color: @white;
+
+	.container {
+		width: 100%;
+	}
+}
+
+.item {
+	.user-select(none);
+	width: 100%;
+	position: absolute;
+	left: 0;
+	top: 0;
+	right: 0;
+	bottom: 0;
+
+	.qst__inp-cont {
+		padding: 13px 14px 12px;
+		height: 14px;
+	}
+
+	.qst__inp-cont-ta {
+		height: auto;
+	}
+}
+
+
+// Errors
+.item__error {
+	font-size: 13px;
+	line-height: 14px;
+	color: @white;
+	.transition(all .3s);
+	opacity: 0;
+}
+
+.error {
+	.item__error {
+		opacity: 1;
+		padding-right: 20px;
+	}
+}
+
+
+
+
+
+.showcase {
+	&__table {
+		font-family: @sans0FontFamily;
+		height: 100%;
+		width: 100%;
+		border-spacing: 0;
+		border-collapse: collapse;
+		background: @grayLighter;
+		position: relative;
+
+		td {
+			vertical-align: middle;
+			padding: 0;
+		}
+	}
+
+		&__cont {
+			margin: 10px;
+			overflow: hidden;
+		}
+
+			&__form {
+				width: (@gridGutterWidth + @gridColumnWidth)*9;
+				margin: 0 auto;
+				.border-radius(2px);
+				overflow: hidden;
+				background: @white url(/images/qb/dashed-border.png) (@gridGutterWidth + @gridColumnWidth)*5 top repeat-y;
+				.box-shadow(0 1px 10px rgba(0,0,0,.14));
+
+				&__col1 {
+					padding: 32px @gridGutterWidth 20px;
+					.box-sizing(border-box);
+					float: left;
+					width: (@gridGutterWidth + @gridColumnWidth)*5;
+					vertical-align: top;
+				}
+
+					&__img-cont {
+						width: 320px;
+						height: 180px;
+						vertical-align: top;
+						margin-bottom: 18px;
+					}
+
+						&__img {
+							.background-size(cover);
+							width: 320px;
+							height: 180px;
+						}
+
+					&-h {
+						font-weight: bold;
+						font-size: 18px;
+						line-height: 24px;
+						margin: 0 0 17px 0;
+						padding: 0;
+					}
+
+					&-desc {
+						font-size: 14px;
+						line-height: 20px;
+						margin: 0 0 27px 0;
+						padding: 0;
+					}
+
+				&__col2 {
+					padding: 32px @gridGutterWidth 20px;
+					margin-left: (@gridGutterWidth + @gridColumnWidth)*5;
+					.box-sizing(border-box);
+				}
+					&-price {
+						display: inline-block;
+						font-size: 18px;
+						line-height: 30px;
+						font-style: italic;
+						margin-bottom: 20px;
+					}
+
+					&-email-group {
+						margin-bottom: 8px;
+					}
+
+				.itemedit &-email-cont {
+						padding: 7px 8px;
+					}
+
+					&-price-desc {
+						font-size: 11px;
+						line-height: 1.4;
+						padding: 0;
+						margin: 0 0 28px;
+					}
+
+
+					&__buy-btn {
+						display: inline-block;
+						font-size: 16px;
+						line-height: 18px;
+						text-decoration: none;
+						color: @white;
+						.box-shadow(0 1px 2px rgba(0,0,0,.35));
+						overflow: hidden;
+						.border-radius(2px);
+						#gradient .vertical(#ff7e6d, #cf4b3a);
+						cursor: pointer;
+						padding: 1px;
+
+						&:hover {
+							text-decoration: none;
+						}
+
+						&-in {
+							display: inline-block;
+							padding: 8px 34px;
+							#gradient .vertical-three-colors(#ff8171, #c3362e, 50%, #f06d5c);
+						}
+					}
+
+				&__bottom-row {
+					#gradient .vertical (#797979, #676767);
+					overflow: hidden;
+					font-size: 11px;
+					line-height: 1;
+					color: @white;
+					clear: both;
+
+					a {
+						color: @white;
+						text-decoration: underline;
+						&:hover {
+							color: @white;
+							text-decoration: underline;
+						}
+					}
+
+					&__col1 {
+						.box-sizing(border-box);
+						float: left;
+						width: (@gridGutterWidth + @gridColumnWidth)*5;
+						vertical-align: top;
+						text-align: center;
+						padding: 9px 40px 10px;
+					}
+
+					&__col2 {
+						.box-sizing(border-box);
+						margin-left: (@gridGutterWidth + @gridColumnWidth)*5;
+						padding: 9px 40px 10px;
+					}
+				}
+
+				&__safe {
+					&-icn {
+						vertical-align: top;
+					}
+					&-desc {
+						text-transform: uppercase;
+						font-size: 10px;
+						margin-left: 6px;
+					}
+				}
+			}
+
+			&__share {
+				list-style: none;
+				&-itm {
+					display: inline-block;
+					// margin-right: -1px;
+					font-size: 11px;
+					line-height: 20px;
+					color: @grayDarker1;
+
+					&-a {
+						display: inline-block;
+						border: 1px solid @white;
+						font-size: 0;
+						line-height: 0;
+						.border-radius(2px);
+
+						&:hover,
+						&:active,
+						&:focus {
+							border: 1px solid @grayLighter;
+						}
+					}
+
+					.is {
+						vertical-align: middle;
+					}
+				}
+			}
+
+			&__desc {
+				font-size: 11px;
+				line-height: 13px;
+				padding: 0;
+				margin: 0 0 94px;
+				color: @grayLight;
+			}
+}
