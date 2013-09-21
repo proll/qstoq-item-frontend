@@ -122,7 +122,7 @@ module.exports = function(grunt) {
 			dist: {
 				options: {
 					collapseBooleanAttributes: true,
-					removeAttributeQuotes: true,
+					// removeAttributeQuotes: true,
 					removeRedundantAttributes: true,
 					removeEmptyAttributes: true,
 				},
@@ -261,6 +261,7 @@ module.exports = function(grunt) {
 		'copy:dist',
 		'rev',
 		'usemin',
+		// 'htmlmin:dist',
 		'htmlmin:deploy',
 	]);
 };

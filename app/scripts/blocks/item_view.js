@@ -40,9 +40,15 @@ qst.ItemView = Backbone.View.extend({
 		this.delegateEvents();
 
 		// meta
-		$('title').html('qstoq - ' + this.model.get('name'));
-		if(!!this.get('description')) {
+		$('title').text('qstoq - ' + this.model.get('name'));
+		$('#og_title').attr('content', 'qstoq - ' + this.model.get('name'));
+		$('#og_url').attr('content', this.model.get('url_short'));
+		if(!!this.model.get('preview_obj') && this.model.get('preview_obj').data) {
+			$('#og_image').attr('content', this.model.get('preview_obj').data);
+		}
+		if(!!this.model.get('description')) {
 			$('meta[name=description]').attr('content', this.model.get('description'));
+			$('#og_description').attr('content', this.model.get('description'));
 		}
 	},
 
