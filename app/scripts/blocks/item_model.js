@@ -2,6 +2,7 @@ qst.Item = Backbone.Model.extend({
 	
 	url: '/v1/links/',
 	url_invoice: '/v1/invoices/',
+	url_purchase: '/v1/purchases/',
 	preview: null,
 	
 	defaults: {
@@ -20,12 +21,14 @@ qst.Item = Backbone.Model.extend({
 		// 		"name": "some",
 		// 		"id": <user_id>,
 		// },
+		customer_email: '',
 	},
 
 	initialize: function (options) {
 		this.view = new qst.ItemView({
 			model:this
 		});
+		qst.on('usersettings:ready', this.updateCustomerEmail, this);
 	},
 
 	init: function() {
@@ -52,6 +55,12 @@ qst.Item = Backbone.Model.extend({
 		return Backbone.Model.prototype.fetch.call(this, options);
 	},
 
+	updateCustomerEmail: function(user_obj) {
+		if(user_obj && user_obj.email) {
+			this.set('customer_email', user_obj.email);
+		}
+	},
+
 	success: function (model, response, options) {
 		response = _.toJSON(response);
 		this.set(response.result);
@@ -68,46 +77,79 @@ qst.Item = Backbone.Model.extend({
 		this.trigger('load:error');
 	},
 
-	save: function (options) {
-		// поддержка формата цен на серверной стороне
+	invoice: function (options) {
 		var data = this.toJSON();
-		if(data.price_pwyw) {
-			data.price+= '+';
-		}
 
 		options = options || {};
-		options.url = this.url + this.get('id');
+		options.url = this.url_invoice;
 		options.type = 'post';
 		options.data = options.data || {
-			active: 		data.active,
-			name: 			data.name,
-			description: 	data.description,
-			url: 			data.url,
-			price: 			data.price,
-			ship_limit: 	data.ship_limit,
+			amount: 		data.price,
+			currency: 		data.currency,
+			link_id: 		data.id,
+			buyer_email: 	data.customer_email,
 		};
-		options.success  	= _.bind(this.saveSuccess, this);
-		options.error  		= _.bind(this.saveError, this);
-
-		this.trigger('save:start');
+		options.success  	= _.bind(this.invoiceSuccess, this);
+		options.error  		= _.bind(this.invoiceError, this);
+		this.trigger('invoice:start');
 
 		return Backbone.Model.prototype.fetch.call(this, options);
 	},
 
-	saveSuccess: function (model, response, options) {
+	invoiceSuccess: function (model, response, options) {
 		response = _.toJSON(response);
-		
-		if(response.success) {
-			this.trigger('save:success');
-		} else {
-			this.trigger('save:error');
+		this.trigger('invoice:success');
+
+		this.purchase( {	
+			data: {
+				invoice_id: response.result.id
+			}
+		})
+	},
+
+	invoiceError: function (model, xhr, desc) {
+		if(!!xhr.responseText) {
+			var resp = _.toJSON(xhr.responseText);
+			if(!!resp && !!resp.error) {
+				this.trigger('invoice:error', resp.error);
+				return true;
+			}
 		}
+		this.trigger('invoice:error', {});
+		return true;
 	},
 
-	saveError: function (model, xhr, options) {
-		this.trigger('save:error');
+	purchase: function (options) {
+		var data = this.toJSON();
+
+		options = options || {};
+		options.url = this.url_purchase;
+		options.type = 'post';
+		options.data = options.data || {};
+		options.success  	= _.bind(this.purchaseSuccess, this);
+		options.error  		= _.bind(this.purchaseError, this);
+		this.trigger('purchase:start');
+
+		return Backbone.Model.prototype.fetch.call(this, options);
 	},
 
+	purchaseSuccess: function (model, response, options) {
+		response = _.toJSON(response);
+		this.trigger('purchase:success');
+		this.view.requestForm(response.result);
+	},
+
+	purchaseError: function (model, xhr, desc) {
+		if(!!xhr.responseText) {
+			var resp = _.toJSON(xhr.responseText);
+			if(!!resp && !!resp.error) {
+				this.trigger('purchase:error', resp.error);
+				return true;
+			}
+		}
+		this.trigger('purchase:error', {});
+		return true;
+	},
 
 	activate: function() {
 		this.set("sleeped", false);

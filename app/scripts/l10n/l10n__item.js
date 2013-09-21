@@ -29,5 +29,15 @@ qst.l10n.item = {
 	'Purchase more': {
 		en: 'Purchase more',
 		ru: 'Купить ещё раз'
-	}
+	},
+
+	'Doesn&#39;t look like a valid email': {
+		en: 'Doesn&#39;t look like a valid e-mail',
+		ru: 'Неправильный формат e-mail'
+	},
+
+	'Too much': {
+		en: 'Too much',
+		ru: 'Что-то недопустимо большое',
+	},
 }

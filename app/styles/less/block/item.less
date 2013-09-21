@@ -32,20 +32,18 @@
 .item__error {
 	font-size: 13px;
 	line-height: 14px;
-	color: @white;
+	color: @red;
 	.transition(all .3s);
 	opacity: 0;
+	display: inline-block;
 }
 
 .error {
 	.item__error {
 		opacity: 1;
-		padding-right: 20px;
+		padding-top: 10px;
 	}
 }
-
-
-
 
 
 .showcase {
@@ -64,10 +62,12 @@
 		}
 	}
 
+
 		&__cont {
 			margin: 10px;
 			overflow: hidden;
 		}
+
 
 			&__form {
 				width: (@gridGutterWidth + @gridColumnWidth)*9;
@@ -76,6 +76,21 @@
 				overflow: hidden;
 				background: @white url(/images/qb/dashed-border.png) (@gridGutterWidth + @gridColumnWidth)*5 top repeat-y;
 				.box-shadow(0 1px 10px rgba(0,0,0,.14));
+				position: relative;
+
+				&__blocker {
+					position: absolute;
+					top: 0;
+					left: 400px;
+					right: 0;
+					bottom: 30px;
+					background: rgba(255, 255, 255, 0.5);
+					display: none;
+				}
+
+				.blocked &__blocker {
+					display: block;
+				}
 
 				&__col1 {
 					padding: 32px @gridGutterWidth 20px;
@@ -155,7 +170,10 @@
 						cursor: pointer;
 						padding: 1px;
 
+						&:focus,
+						&:active,
 						&:hover {
+							color: @white;
 							text-decoration: none;
 						}
 
@@ -163,6 +181,13 @@
 							display: inline-block;
 							padding: 8px 34px;
 							#gradient .vertical-three-colors(#ff8171, #c3362e, 50%, #f06d5c);
+
+							&:focus,
+							&:active,
+							&:hover {
+								color: @white;
+								text-decoration: none;
+							}
 						}
 					}
 

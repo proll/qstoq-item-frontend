@@ -5,7 +5,7 @@ this["qst"]["Templates"]["ptemplates"] = this["qst"]["Templates"]["ptemplates"] 
 this["qst"]["Templates"]["ptemplates"]["blocks/item"] = Handlebars.template(function (Handlebars,depth0,helpers,partials,data) {
   this.compilerInfo = [4,'>= 1.0.0'];
 helpers = this.merge(helpers, Handlebars.helpers); data = data || {};
-  var buffer = "", stack1, options, functionType="function", escapeExpression=this.escapeExpression, self=this, helperMissing=helpers.helperMissing;
+  var buffer = "", stack1, stack2, options, functionType="function", escapeExpression=this.escapeExpression, self=this, helperMissing=helpers.helperMissing;
 
 function program1(depth0,data) {
   
@@ -40,22 +40,57 @@ function program1(depth0,data) {
     + "</span>&nbsp;";
   options = {hash:{},data:data};
   buffer += escapeExpression(((stack1 = helpers['_'] || depth0['_']),stack1 ? stack1.call(depth0, depth0.currency, "currency", options) : helperMissing.call(depth0, "_", depth0.currency, "currency", options)))
-    + "</span>\n						<div class=\"showcase__form-email-group qst__inp-group\">\n							<div class=\"showcase__form-email-cont qst__inp-cont\">\n								<input type=\"text\" value=\"\" placeholder=\"";
+    + "</span>\n						<form action=\"buy\" method=\"post\">\n							<div class=\"showcase__form-email-group qst__inp-group\">\n								<div class=\"showcase__form-email-cont qst__inp-cont\">\n									<input type=\"text\" value=\"";
+  if (stack2 = helpers.customer_email) { stack2 = stack2.call(depth0, {hash:{},data:data}); }
+  else { stack2 = depth0.customer_email; stack2 = typeof stack2 === functionType ? stack2.apply(depth0) : stack2; }
+  buffer += escapeExpression(stack2)
+    + "\" placeholder=\"";
   options = {hash:{},data:data};
   buffer += escapeExpression(((stack1 = helpers['_'] || depth0['_']),stack1 ? stack1.call(depth0, "email", "itemedit", options) : helperMissing.call(depth0, "_", "email", "itemedit", options)))
-    + "\" class=\"showcase__form-email qst__inp\" disabled=\"disabled\" name=\"customer_email\">\n							</div>\n						</div>\n						<p class=\"showcase__form-price-desc\">";
+    + "\" class=\"showcase__form-email qst__inp\" name=\"customer_email\" maxlength=\"50\">\n								</div>\n							</div>\n							<input type=\"submit\" class=\"hidden-submit\">\n						</form>\n						<p class=\"showcase__form-price-desc\">";
   options = {hash:{},data:data};
   buffer += escapeExpression(((stack1 = helpers['_'] || depth0['_']),stack1 ? stack1.call(depth0, "for notifications about your purchases<br/>and feedback", "itemedit", options) : helperMissing.call(depth0, "_", "for notifications about your purchases<br/>and feedback", "itemedit", options)))
-    + "</p>\n\n						<span class=\"showcase__form__buy-btn\"><span class=\"showcase__form__buy-btn-in\">";
+    + "</p>\n\n						<a class=\"showcase__form__buy-btn\" href=\"buy\"><span class=\"showcase__form__buy-btn-in\">";
   options = {hash:{},data:data};
   buffer += escapeExpression(((stack1 = helpers['_'] || depth0['_']),stack1 ? stack1.call(depth0, "Buy", "itemedit", options) : helperMissing.call(depth0, "_", "Buy", "itemedit", options)))
-    + "</span></span>\n						<span class=\"item__error\"></span>\n					</div>\n					<div class=\"showcase__form__bottom-row\">\n						<div class=\"showcase__form__bottom-row__col1\"><a href=\"http://qstoq.ru\" target=\"_blank\">Qstoq</a> &mdash; ";
+    + "</span></a>\n						<span class=\"item__error\"></span>\n					</div>\n					<div class=\"showcase__form__bottom-row\">\n						<div class=\"showcase__form__bottom-row__col1\"><a href=\"http://qstoq.ru\" target=\"_blank\">Qstoq</a> &mdash; ";
   options = {hash:{},data:data};
   buffer += escapeExpression(((stack1 = helpers['_'] || depth0['_']),stack1 ? stack1.call(depth0, "selling in lightning speed", "itemedit", options) : helperMissing.call(depth0, "_", "selling in lightning speed", "itemedit", options)))
     + "</div>\n						<div class=\"showcase__form__bottom-row__col2\"><i class=\"is is-lock showcase__form__safe-icn\"></i><span class=\"showcase__form__safe-desc\">";
   options = {hash:{},data:data};
   buffer += escapeExpression(((stack1 = helpers['_'] || depth0['_']),stack1 ? stack1.call(depth0, "Safe payment", "item", options) : helperMissing.call(depth0, "_", "Safe payment", "item", options)))
-    + "</span></div>\n					</div>\n				</div>\n			</div>\n		</td>\n	</tr>\n</table>";
+    + "</span></div>\n					</div>\n					<div class=\"showcase__form__blocker\"></div>\n				</div>\n			</div>\n		</td>\n	</tr>\n</table>";
+  return buffer;
+  });
+
+this["qst"]["Templates"]["ptemplates"]["misc/request-form"] = Handlebars.template(function (Handlebars,depth0,helpers,partials,data) {
+  this.compilerInfo = [4,'>= 1.0.0'];
+helpers = this.merge(helpers, Handlebars.helpers); data = data || {};
+  var buffer = "", stack1, functionType="function", escapeExpression=this.escapeExpression, self=this;
+
+function program1(depth0,data) {
+  
+  var buffer = "", stack1;
+  buffer += "\n<input type=\"hidden\" name=\""
+    + escapeExpression(((stack1 = ((stack1 = data),stack1 == null || stack1 === false ? stack1 : stack1.key)),typeof stack1 === functionType ? stack1.apply(depth0) : stack1))
+    + "\" value=\""
+    + escapeExpression((typeof depth0 === functionType ? depth0.apply(depth0) : depth0))
+    + "\">\n";
+  return buffer;
+  }
+
+  buffer += "<form action=\"";
+  if (stack1 = helpers.submitUrl) { stack1 = stack1.call(depth0, {hash:{},data:data}); }
+  else { stack1 = depth0.submitUrl; stack1 = typeof stack1 === functionType ? stack1.apply(depth0) : stack1; }
+  buffer += escapeExpression(stack1)
+    + "\" method=\"";
+  if (stack1 = helpers.method) { stack1 = stack1.call(depth0, {hash:{},data:data}); }
+  else { stack1 = depth0.method; stack1 = typeof stack1 === functionType ? stack1.apply(depth0) : stack1; }
+  buffer += escapeExpression(stack1)
+    + "\" class=\"hidden-form\">\n";
+  stack1 = helpers.each.call(depth0, depth0.parameters, {hash:{},inverse:self.noop,fn:self.program(1, program1, data),data:data});
+  if(stack1 || stack1 === 0) { buffer += stack1; }
+  buffer += "\n<input type=\"submit\" value=\"buy\">\n</form>";
   return buffer;
   });
 

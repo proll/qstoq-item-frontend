@@ -1,0 +1,6 @@
+<form action="{{ submitUrl }}" method="{{ method }}" class="hidden-form">
+{{#each parameters}}
+<input type="hidden" name="{{@key}}" value="{{this}}">
+{{/each}}
+<input type="submit" value="buy">
+</form>

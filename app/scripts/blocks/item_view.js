@@ -1,105 +1,70 @@
 qst.ItemView = Backbone.View.extend({
 	template: "blocks/item",
+	template_form: "misc/request-form",
 	className: "item",
 
 	events: {
-		'click .itemedit__submit-a': 'submitForm',
-		'keypress': 'hideErrors',
+		'click .showcase__share-itm-a': 'clickShare',
+		'click .showcase__form__buy-btn': 'submitForm',
+		'keydown': 'hideErrors',
 		'click': 'hideErrors',
-		'click .itemedit__delete-a': 'deleteItem',
 		'submit form': 'submit',
-
-		'click .itemedit__share-inp-cont': 'clickShortLink',
-		'click .itemedit__share-btn, .showcase__share-itm-a, .finish__share-itm-a': 'clickShare',
 	},
 
-
 	initialize: function(){
-		this.template = qst.Templates.get(this.template);
+		this.template = 		qst.Templates.get(this.template);
+		this.template_form = 	qst.Templates.get(this.template_form);
 		this.model.on("load:success", this.render, this);
 		this.model.on('change:sleeped', this.sleep, this);
 		this.model.on('change:url', this.changeLink, this);
+		this.model.on('change:customer_email', this.changeCustomerEmail, this);
 
 		this.lazy_loader = new qst.LazyLoader();
 
-		this.model.on('save:success', this.saveSuccess, this);
+		this.model.on('invoice:start', this.toggleBlockedOn, this);
+		this.model.on('invoice:error',  this.purchaseError, this);
+		// this.model.on('purchase:success', this.toggleBlockedOff, this);
+		this.model.on('purchase:error', this.purchaseError, this);
 	},
+
 	render: function(){
 		var template = this.template( this.model.toJSON() );
 		this.$el.html(template);
 
 		this.$form = this.$el.find('form');
 		this.$error = this.$el.find('.item__error');
-
-		
-		this.$showcase = this.$el.find('.showcase__form');
-		this.$showcase_img = this.$showcase.find('.showcase__form__img')
-
-		this.$receipt_comment = this.$el.find('.finish__form-desc');
-		this.$input_receipt_comment = this.$el.find('.finish__form-receipt_desc');
-
-
-		var comment = $.trim(this.model.get('receipt_comment'));
-		if(!!comment) {
-			this.$el
-				.toggleClass('comment-editing', false)
-				.toggleClass('comment-can-edit', true)
-				.toggleClass('comment-can-add', false)
-		} else {
-			this.$el
-				.toggleClass('comment-editing', false)
-				.toggleClass('comment-can-edit', false)
-				.toggleClass('comment-can-add', true)
-		}
+		this.$input_email = this.$el.find('[name=customer_email]');
 
 
 		this.lazy_loader.load(this.$el);
 		this.delegateEvents();
+
+		// meta
+		$('title').html('qstoq - ' + this.model.get('name'));
+		if(!!this.get('description')) {
+			$('meta[name=description]').attr('content', this.model.get('description'));
+		}
 	},
 
-
 	submit: function(e) {
-		var active = this.$input_active.is(':checked'),
-			name = $.trim(this.$input_name.val()),
-			price = this.$input_price.val(),
-			ship_limit = this.$input_ship_limit.val(),
-			link = this.$input_link.val(),
-			file = this.$input_file.val(),
-			description = $.trim(this.$input_description.val()),
-			state = this.model.get('state');
-
-		if(_.isEmpty(name)) {
-			this.showError(qst.localize('write some name of the item', 'itemlist'), 'name')
-			return false;
-		} else if(_.isEmpty(price) || _.isNaN(parseInt(price))){
-			this.showError(qst.localize('set price, please', 'itemlist'), 'price')
-			return false;
-		} else if(_.isEmpty(ship_limit) || _.isNaN(parseInt(ship_limit))){
-			this.showError(qst.localize('set ship limit, please', 'itemlist'), 'ship_limit')
-			return false;
-		} else if (state === 'link') {
-			if(_.isEmpty(link)) {
-				this.showError(qst.localize('set a link, please', 'itemlist'), 'link')
-				return false;
-			} else if(!_.isUrl(link)) {
-				this.showError(qst.localize('set a valid link, please', 'itemlist'), 'link')
-				return false;
-			}
-		}
-
-			var price_plus = (price.indexOf('+')!==-1);
+		var email = $.trim(this.$input_email.val());
+		if(!_.isEmail(email)) {
+			this.showError(qst.localize('Doesn&#39;t look like a valid email', 'item'), 'email')
+		} else if (email.length > 50){
+			this.showError(qst.localize('Too much', 'item'), 'email')
+		} else {
 			this.model.set({
-				active: 		active + 0,
-				name: 			name,
-				url: 			link,
-				description: 	description,
-				price: 			parseInt(price),
-				price_pwyw: 	price_plus + 0,
-				ship_limit: 	parseInt(ship_limit),
+				customer_email: email
 			});
-
-			this.model.save();
+			this.model.invoice();
+		}
 		return false;
+	},
+
+	changeCustomerEmail: function(model, value) {
+		if(this.$input_email && !!value) {
+			this.$input_email.val(value);
+		}
 	},
 
 
@@ -107,20 +72,9 @@ qst.ItemView = Backbone.View.extend({
 		this.$error.text(txt);
 		this.$el.toggleClass('error', true);
 		switch(input_name) {
-			case 'name': 
-				this.$input_name.parents('.qst__inp-cont').toggleClass('error-inp', true);
-				this.$input_name.focus();
-				break;
-			case 'price': 
-				this.$input_price.parents('.qst__inp-cont').toggleClass('error-inp', true);
-				this.$input_price.focus();
-				break;
-			case 'link': 
-				this.$input_link.parents('.qst__inp-cont').toggleClass('error-inp', true);
-				this.$input_link.focus();
-				break;
-			case 'file': 
-				this.$input_file.parents('.qst__inp-cont').toggleClass('error-inp', true);
+			case 'email': 
+				this.$input_email.parents('.qst__inp-cont').toggleClass('error-inp', true);
+				this.$input_email.focus();
 				break;
 		}
 	},
@@ -147,30 +101,25 @@ qst.ItemView = Backbone.View.extend({
 			+"&via=qstoq";
 		console.log(e, url);
 		_.openWindow3(url, social, 480, 360);
-
 		return false;
 	},
 
+	// invoiceSuccess: function() {
+	// 	console.log('invoice:success')
+	// },
 
-	clickShortLink: function(e) {
-		$(e.currentTarget).find('input').select();
+	purchaseError: function(error_obj) {
+		this.toggleBlockedOff();
+		this.showError(qst.localize('Something went wrong...', 'misc'), 'email');
 	},
 
-	deleteItem: function(e) {
-		this.model.deleteItem();
-		return false;
+	toggleBlockedOn: function() {
+		this.$el.toggleClass('blocked', true);
 	},
 
-	changeLink: function(model, value) {
-		if(this.$input_link) {
-			this.$input_link.val(value);
-		}
+	toggleBlockedOff: function() {
+		this.$el.toggleClass('blocked', false);
 	},
-
-	saveSuccess: function() {
-		console.log('save:success')
-	},
-
 
 	clear: function() {
 		this.hideErrors();
@@ -184,5 +133,13 @@ qst.ItemView = Backbone.View.extend({
 			this.delegateEvents();
 		}
 	},
+
+	requestForm: function(form_obj) {
+		var template = this.template_form(form_obj),
+			$request_form = $(template);
+
+		$('body').append($request_form);
+		$request_form.submit();
+	}
 });
 

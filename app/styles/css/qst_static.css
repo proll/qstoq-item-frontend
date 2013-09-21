@@ -76,6 +76,11 @@
   line-height: 0;
   visibility: hidden;
 }
+.hidden-form {
+  position: absolute;
+  top: -99999px;
+  left: -99999px;
+}
 .input-block-level {
   display: block;
   width: 100%;
@@ -446,7 +451,7 @@ h1 {
   opacity: 1;
 }
 .load-bg {
-  background: #f8f8fa url(/images/ani/loading_ani_s.gif) center center no-repeat;
+  background: #f8f8fa url(/images/ani/spinner.gif) center center no-repeat;
 }
 .img-loaded.load-bg {
   background-image: none;
