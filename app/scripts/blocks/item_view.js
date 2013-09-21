@@ -105,7 +105,7 @@ qst.ItemView = Backbone.View.extend({
 			+"&pubid=prolll"
 			+"&text=" + encodeURIComponent(this.model.get('description'))
 			+"&via=qstoq";
-		console.log(e, url);
+		// console.log(e, url);
 		_.openWindow3(url, social, 480, 360);
 		return false;
 	},

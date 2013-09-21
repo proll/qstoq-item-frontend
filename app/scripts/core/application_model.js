@@ -49,7 +49,7 @@ qst.App = Backbone.Model.extend({
 		});
 
 		this.router.on('route', function (router, route, params) {
-			console.log('route:' + router);
+			// console.log('route:' + router);
 			this.statistic.trackCurrentPageChange();
 			
 			qst.trigger('route', router, route, params);
@@ -84,7 +84,7 @@ qst.App = Backbone.Model.extend({
 
 		// Clear pages - sleep
 		this.router.on('reset', function (prev_route, dest_route) {
-			console.log(prev_route, dest_route)
+			// console.log(prev_route, dest_route)
 
 			if(!this.router.isPopup(dest_route)) {
 				if(!this.router.isPopup(prev_route)) {

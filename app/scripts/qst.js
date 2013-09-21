@@ -1,3 +1,5 @@
+if (typeof console == "undefined") {this.console = {log: function() {}, error: function() {}};}
+
 window.qst = window.qst || {};
 window.qst = _.extend(window.qst, {
 	language: _.getCookie('lang') || (navigator.language || navigator.systemLanguage || navigator.browserLanguage || navigator.userLanguage || 'en').substr(0, 2).toLowerCase(),
