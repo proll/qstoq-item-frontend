@@ -75,7 +75,7 @@ qst.ItemView = Backbone.View.extend({
 
 
 	showError: function(txt, input_name) {
-		this.$error.text(txt);
+		this.$error.html(txt);
 		this.$el.toggleClass('error', true);
 		switch(input_name) {
 			case 'email': 
