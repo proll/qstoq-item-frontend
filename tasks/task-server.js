@@ -33,12 +33,12 @@ module.exports = function(grunt) {
 
 		var middleware = [
 
-			//if /api/ called proxying to API
+			//if /v1/ called proxying to API
 			function(req, res, next){
 				var requestedPath = url.parse(req.url).pathname;
 				if(requestedPath.indexOf("/v1/") == 0){
 					proxy.proxyRequest(req, res, {
-						host: "s.qstoq.io",
+						host: "s.qstoq.ru",
 						port: 80
 					});
 					return false;

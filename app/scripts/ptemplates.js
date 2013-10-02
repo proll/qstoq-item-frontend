@@ -20,24 +20,46 @@ function program1(depth0,data) {
   return buffer;
   }
 
-  buffer += "<table class=\"showcase__table\">\n	<tr>\n		<td>\n			<div class=\"showcase__cont\">\n				<div class=\"showcase__form\">\n					<div class=\"showcase__form__col1\">\n						";
+function program3(depth0,data) {
+  
+  var buffer = "", stack1;
+  buffer += "<span class=\"hidden showcase__form-image\" itemprop=\"image\">"
+    + escapeExpression(((stack1 = ((stack1 = depth0.preview_obj),stack1 == null || stack1 === false ? stack1 : stack1.data)),typeof stack1 === functionType ? stack1.apply(depth0) : stack1))
+    + "</span>";
+  return buffer;
+  }
+
+  buffer += "<table class=\"showcase__table\" itemscope itemtype=\"http://schema.org/Product\">\n	<tr>\n		<td>\n			<div class=\"showcase__cont\">\n				<div class=\"showcase__form\">\n					<div class=\"showcase__form__col1\">\n						";
   stack1 = helpers['if'].call(depth0, depth0.preview_obj, {hash:{},inverse:self.noop,fn:self.program(1, program1, data),data:data});
   if(stack1 || stack1 === 0) { buffer += stack1; }
-  buffer += "\n						<h1 class=\"showcase__form-h\">";
+  buffer += "\n						<h1 class=\"showcase__form-h\" itemprop=\"name\">";
   if (stack1 = helpers.name) { stack1 = stack1.call(depth0, {hash:{},data:data}); }
   else { stack1 = depth0.name; stack1 = typeof stack1 === functionType ? stack1.apply(depth0) : stack1; }
   buffer += escapeExpression(stack1)
-    + "</h1>\n						<p class=\"showcase__form-desc\">";
+    + "</h1>\n						<p class=\"showcase__form-desc\" itemprop=\"description\">";
   if (stack1 = helpers.description) { stack1 = stack1.call(depth0, {hash:{},data:data}); }
   else { stack1 = depth0.description; stack1 = typeof stack1 === functionType ? stack1.apply(depth0) : stack1; }
   buffer += escapeExpression(stack1)
-    + "</p>\n						<ul class=\"showcase__share\">\n							<li class=\"showcase__share-itm\">";
+    + "</p>\n						";
+  stack1 = helpers['if'].call(depth0, depth0.preview_obj, {hash:{},inverse:self.noop,fn:self.program(3, program3, data),data:data});
+  if(stack1 || stack1 === 0) { buffer += stack1; }
+  buffer += "\n						<span class=\"hidden showcase__form-url\" itemprop=\"url\">";
+  if (stack1 = helpers.url_short) { stack1 = stack1.call(depth0, {hash:{},data:data}); }
+  else { stack1 = depth0.url_short; stack1 = typeof stack1 === functionType ? stack1.apply(depth0) : stack1; }
+  buffer += escapeExpression(stack1)
+    + "</span>\n						<ul class=\"showcase__share\">\n							<li class=\"showcase__share-itm\">";
   options = {hash:{},data:data};
   buffer += escapeExpression(((stack1 = helpers['_'] || depth0['_']),stack1 ? stack1.call(depth0, "Share", "item", options) : helperMissing.call(depth0, "_", "Share", "item", options)))
-    + "</li>\n							<li class=\"showcase__share-itm\"><a class=\"showcase__share-itm-a\" href=\"vk\"><i class=\"is is-shc-vk\"></i></a></li>\n							<li class=\"showcase__share-itm\"><a class=\"showcase__share-itm-a\" href=\"facebook\"><i class=\"is is-shc-fb\"></i></a></li>\n							<li class=\"showcase__share-itm\"><a class=\"showcase__share-itm-a\" href=\"twitter\"><i class=\"is is-shc-tw\"></i></a></li>\n						</ul>\n					</div>\n					<div class=\"showcase__form__col2\">\n						<span class=\"showcase__form-price\"><span class=\"showcase__form-price-val\">";
+    + "</li>\n							<li class=\"showcase__share-itm\"><a class=\"showcase__share-itm-a\" href=\"vk\"><i class=\"is is-shc-vk\"></i></a></li>\n							<li class=\"showcase__share-itm\"><a class=\"showcase__share-itm-a\" href=\"facebook\"><i class=\"is is-shc-fb\"></i></a></li>\n							<li class=\"showcase__share-itm\"><a class=\"showcase__share-itm-a\" href=\"twitter\"><i class=\"is is-shc-tw\"></i></a></li>\n						</ul>\n					</div>\n					<div class=\"showcase__form__col2\" itemprop=\"offers\" itemscope itemtype=\"http://schema.org/Offer\">\n						<span class=\"showcase__form-price\"><span class=\"showcase__form-price-val\">";
   options = {hash:{},data:data};
   buffer += escapeExpression(((stack1 = helpers._number_format || depth0._number_format),stack1 ? stack1.call(depth0, depth0.price, options) : helperMissing.call(depth0, "_number_format", depth0.price, options)))
     + "</span>&nbsp;";
+  options = {hash:{},data:data};
+  buffer += escapeExpression(((stack1 = helpers['_'] || depth0['_']),stack1 ? stack1.call(depth0, depth0.currency, "currency", options) : helperMissing.call(depth0, "_", depth0.currency, "currency", options)))
+    + "</span>\n						<span class=\"hidden showcase__form-price\" itemprop=\"price\">";
+  options = {hash:{},data:data};
+  buffer += escapeExpression(((stack1 = helpers._number_format || depth0._number_format),stack1 ? stack1.call(depth0, depth0.price, options) : helperMissing.call(depth0, "_number_format", depth0.price, options)))
+    + " ";
   options = {hash:{},data:data};
   buffer += escapeExpression(((stack1 = helpers['_'] || depth0['_']),stack1 ? stack1.call(depth0, depth0.currency, "currency", options) : helperMissing.call(depth0, "_", depth0.currency, "currency", options)))
     + "</span>\n						<form action=\"buy\" method=\"post\">\n							<div class=\"showcase__form-email-group qst__inp-group\">\n								<div class=\"showcase__form-email-cont qst__inp-cont\">\n									<input type=\"text\" value=\"";

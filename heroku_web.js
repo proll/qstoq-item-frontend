@@ -23,7 +23,7 @@ var middleware = [
 				req.headers['content-length'] = '0';
 			}
 			proxy.proxyRequest(req, res, {
-				host: "s.qstoq.io",
+				host: "s.qstoq.ru",
 				port: 80
 			});
 			return false;
