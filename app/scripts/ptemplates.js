@@ -53,12 +53,13 @@ function program3(depth0,data) {
     + "</li>\n							<li class=\"showcase__share-itm\"><a class=\"showcase__share-itm-a\" href=\"vk\"><i class=\"is is-shc-vk\"></i></a></li>\n							<li class=\"showcase__share-itm\"><a class=\"showcase__share-itm-a\" href=\"facebook\"><i class=\"is is-shc-fb\"></i></a></li>\n							<li class=\"showcase__share-itm\"><a class=\"showcase__share-itm-a\" href=\"twitter\"><i class=\"is is-shc-tw\"></i></a></li>\n						</ul>\n					</div>\n					<div class=\"showcase__form__col2\" itemprop=\"offers\" itemscope itemtype=\"http://schema.org/Offer\">\n						<span class=\"showcase__form-price\"><span class=\"showcase__form-price-val\">";
   options = {hash:{},data:data};
   buffer += escapeExpression(((stack1 = helpers._number_format || depth0._number_format),stack1 ? stack1.call(depth0, depth0.price, options) : helperMissing.call(depth0, "_number_format", depth0.price, options)))
-    + "</span>&nbsp;";
+    + "</span>";
   options = {hash:{},data:data};
   buffer += escapeExpression(((stack1 = helpers['_'] || depth0['_']),stack1 ? stack1.call(depth0, depth0.currency, "currency", options) : helperMissing.call(depth0, "_", depth0.currency, "currency", options)))
     + "</span>\n						<span class=\"hidden showcase__form-price\" itemprop=\"price\">";
-  options = {hash:{},data:data};
-  buffer += escapeExpression(((stack1 = helpers._number_format || depth0._number_format),stack1 ? stack1.call(depth0, depth0.price, options) : helperMissing.call(depth0, "_number_format", depth0.price, options)))
+  if (stack2 = helpers.price) { stack2 = stack2.call(depth0, {hash:{},data:data}); }
+  else { stack2 = depth0.price; stack2 = typeof stack2 === functionType ? stack2.apply(depth0) : stack2; }
+  buffer += escapeExpression(stack2)
     + " ";
   options = {hash:{},data:data};
   buffer += escapeExpression(((stack1 = helpers['_'] || depth0['_']),stack1 ? stack1.call(depth0, depth0.currency, "currency", options) : helperMissing.call(depth0, "_", depth0.currency, "currency", options)))
