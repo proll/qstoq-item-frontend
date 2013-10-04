@@ -76,7 +76,7 @@ function program3(depth0,data) {
     + "</p>\n\n						<a class=\"showcase__form__buy-btn\" href=\"buy\"><span class=\"showcase__form__buy-btn-in\">";
   options = {hash:{},data:data};
   buffer += escapeExpression(((stack1 = helpers['_'] || depth0['_']),stack1 ? stack1.call(depth0, "Buy", "itemedit", options) : helperMissing.call(depth0, "_", "Buy", "itemedit", options)))
-    + "</span></a>\n						<span class=\"item__error\"></span>\n					</div>\n					<div class=\"showcase__form__bottom-row\">\n						<div class=\"showcase__form__bottom-row__col1\"><a href=\"http://qstoq.io\" target=\"_blank\">Qstoq</a> &mdash; ";
+    + "</span></a>\n						<span class=\"item__error\"></span>\n					</div>\n					<div class=\"showcase__form__bottom-row\">\n						<div class=\"showcase__form__bottom-row__col1\"><a href=\"http://qstoq.me\" target=\"_blank\">Qstoq</a> &mdash; ";
   options = {hash:{},data:data};
   buffer += escapeExpression(((stack1 = helpers['_'] || depth0['_']),stack1 ? stack1.call(depth0, "selling in lightning speed", "itemedit", options) : helperMissing.call(depth0, "_", "selling in lightning speed", "itemedit", options)))
     + "</div>\n						<div class=\"showcase__form__bottom-row__col2\"><i class=\"is is-lock showcase__form__safe-icn\"></i><span class=\"showcase__form__safe-desc\">";
@@ -141,7 +141,7 @@ helpers = this.merge(helpers, Handlebars.helpers); data = data || {};
   buffer += escapeExpression(((stack1 = helpers['_'] || depth0['_']),stack1 ? stack1.call(depth0, "Make sure that URL entered correctly;", "p404", options) : helperMissing.call(depth0, "_", "Make sure that URL entered correctly;", "p404", options)))
     + "</li>\n	<li class=\"error-page__list-item\">";
   options = {hash:{},data:data};
-  buffer += escapeExpression(((stack1 = helpers['_'] || depth0['_']),stack1 ? stack1.call(depth0, "or drop us a line to <a href=\"mailto:support@qstoq.io\" class=\"lnk\">support@qstoq.io.</a>", "p404", options) : helperMissing.call(depth0, "_", "or drop us a line to <a href=\"mailto:support@qstoq.io\" class=\"lnk\">support@qstoq.io.</a>", "p404", options)))
+  buffer += escapeExpression(((stack1 = helpers['_'] || depth0['_']),stack1 ? stack1.call(depth0, "or drop us a line to <a href=\"mailto:support@qstoq.me\" class=\"lnk\">support@qstoq.me.</a>", "p404", options) : helperMissing.call(depth0, "_", "or drop us a line to <a href=\"mailto:support@qstoq.me\" class=\"lnk\">support@qstoq.me.</a>", "p404", options)))
     + "</li>\n</ul>";
   return buffer;
   });
