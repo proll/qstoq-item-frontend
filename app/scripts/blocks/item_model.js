@@ -35,11 +35,10 @@ qst.Item = Backbone.Model.extend({
 		this.set('url_short_path', this.get('url_short').split('http://')[1]);
 
 		var preview = this.get('preview');
-		if(!!preview 
-			&& preview.length 
-			&& !!preview[preview.length-1] 
-			&& !!preview[preview.length-1].data) {
-			this.set('preview_obj', preview[preview.length-1])
+		if(!!preview && preview.length) {
+			var preview_image = _.where(preview, {identifier: 'preview_image'});
+			if(!!preview_image && preview_image.length)
+			this.set('preview_obj', preview_image[0])
 		}
 	},
 
