@@ -50,7 +50,9 @@ qst.App = Backbone.Model.extend({
 
 		this.router.on('route', function (router, route, params) {
 			// console.log('route:' + router);
-			this.statistic.trackCurrentPageChange();
+			if(this.router.route_passed > 1) {
+				this.statistic.trackCurrentPageChange();
+			}
 			
 			qst.trigger('route', router, route, params);
 
