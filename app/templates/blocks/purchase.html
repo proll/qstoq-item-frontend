@@ -1,0 +1,15 @@
+<div class="purchase__cont">
+	<div class="purchase__row">
+		{{#if invoice.pay_methods.length}}
+		<h1 class="purchase__h">{{_ 'Choose a payment method' 'purchase'}}</h1>
+		<ul class="purchase__info-list">
+		{{#each invoice.pay_methods}}
+			<li class="purchase__info-item"><a  class="purchase__info-item-a" href="{{system_id}}" rel="nofollow" data-methodid="{{method_id}}" data-systemid="{{system_id}}">{{method_name}}</a></li>
+		{{/each}}
+		</ul>
+		{{else}}
+		<h2 class="purchase__h2">{{_ 'No payment methods for this item :(' 'purchase'}}</h2>
+		{{/if}}
+	</div>
+</div>
+<div class="purchase__fader"></div>

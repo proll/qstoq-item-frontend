@@ -93,7 +93,7 @@
 				}
 
 				&__col1 {
-					padding: 32px @gridGutterWidth 20px;
+					padding: 32px @gridGutterWidth 45px;
 					.box-sizing(border-box);
 					float: left;
 					width: (@gridGutterWidth + @gridColumnWidth)*5;
@@ -129,7 +129,7 @@
 					}
 
 				&__col2 {
-					padding: 32px @gridGutterWidth 20px;
+					padding: 32px @gridGutterWidth 45px;
 					margin-left: (@gridGutterWidth + @gridColumnWidth)*5;
 					.box-sizing(border-box);
 				}
@@ -158,52 +158,28 @@
 
 
 					&__buy-btn {
-						display: inline-block;
-						font-size: 16px;
-						line-height: 18px;
-						text-decoration: none;
-						color: @white;
-						.box-shadow(0 1px 2px rgba(0,0,0,.35));
-						overflow: hidden;
-						.border-radius(2px);
-						#gradient .vertical(#ff7e6d, #cf4b3a);
-						cursor: pointer;
-						padding: 1px;
-
-						&:focus,
-						&:active,
-						&:hover {
-							color: @white;
-							text-decoration: none;
-						}
-
 						&-in {
-							display: inline-block;
-							padding: 8px 34px;
-							#gradient .vertical-three-colors(#ff8171, #c3362e, 50%, #f06d5c);
-
-							&:focus,
-							&:active,
-							&:hover {
-								color: @white;
-								text-decoration: none;
-							}
+							.btn;
+							.btn-red;
+							font-size: 16px;
+							line-height: 20px;
+							font-weight: 700;
 						}
 					}
 
 				&__bottom-row {
-					#gradient .vertical (#797979, #676767);
+					background-color: #404246;
 					overflow: hidden;
 					font-size: 11px;
-					line-height: 1;
-					color: @white;
+					line-height: 14px;
+					color: #82888c;
 					clear: both;
 
 					a {
-						color: @white;
+						color: #82888c;
 						text-decoration: underline;
 						&:hover {
-							color: @white;
+							color: #82888c;
 							text-decoration: underline;
 						}
 					}
@@ -213,14 +189,14 @@
 						float: left;
 						width: (@gridGutterWidth + @gridColumnWidth)*5;
 						vertical-align: top;
-						text-align: center;
-						padding: 9px 40px 10px;
+						text-align: left;
+						padding: 14px 20px;
 					}
 
 					&__col2 {
 						.box-sizing(border-box);
 						margin-left: (@gridGutterWidth + @gridColumnWidth)*5;
-						padding: 9px 40px 10px;
+						padding: 14px 20px;
 					}
 				}
 

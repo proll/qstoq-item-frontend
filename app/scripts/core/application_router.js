@@ -16,6 +16,9 @@ qst.Router = Backbone.Router.extend({
 		"b:id/": 		"item",
 		"b:id": 		"item",
 
+		"purchase/:id/": "purchase",
+		"purchase/:id": "purchase",
+
 		"404": "er404",
 		"403": "er403",
 
@@ -23,7 +26,7 @@ qst.Router = Backbone.Router.extend({
 
 	},
 
-	popoup_routes:	[],
+	popoup_routes:	['purchase'],
 
 	item: function() {
 		// console.log("hello itemedit");

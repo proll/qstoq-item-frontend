@@ -33,6 +33,7 @@ qst.ItemPage = qst.Page.extend({
 			});
 			this.view.render();
 
+
 			this.item = new qst.Item(options);
 			this.item.fetch();
 			this.item.activate();

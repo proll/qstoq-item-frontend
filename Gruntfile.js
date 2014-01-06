@@ -122,7 +122,7 @@ module.exports = function(grunt) {
 			dist: {
 				options: {
 					collapseBooleanAttributes: true,
-					// removeAttributeQuotes: true,
+					removeAttributeQuotes: true,
 					removeRedundantAttributes: true,
 					removeEmptyAttributes: true,
 				},

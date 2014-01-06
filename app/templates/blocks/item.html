@@ -23,7 +23,7 @@
 					<div class="showcase__form__col2" itemprop="offers" itemscope itemtype="http://schema.org/Offer">
 						<span class="showcase__form-price"><span class="showcase__form-price-val">{{_number_format price }}</span>{{_ currency 'currency'}}</span>
 						<span class="hidden showcase__form-price" itemprop="price">{{price }} {{_ currency 'currency'}}</span>
-						<form action="buy" method="post">
+						<form action="purchase" method="post">
 							<div class="showcase__form-email-group qst__inp-group">
 								<div class="showcase__form-email-cont qst__inp-cont">
 									<input type="text" value="{{ customer_email }}" placeholder="{{_ 'email' 'itemedit'}}" class="showcase__form-email qst__inp" name="customer_email" maxlength="50">
@@ -33,7 +33,7 @@
 						</form>
 						<p class="showcase__form-price-desc">{{_ 'for notifications about your purchases<br/>and feedback' 'itemedit'}}</p>
 
-						<a class="showcase__form__buy-btn" href="buy"><span class="showcase__form__buy-btn-in">{{_ 'Buy' 'itemedit'}}</span></a>
+						<a class="showcase__form__buy-btn" href="purchase"><span class="showcase__form__buy-btn-in">{{_ 'Buy' 'itemedit'}}</span></a>
 						<span class="item__error"></span>
 					</div>
 					<div class="showcase__form__bottom-row">
