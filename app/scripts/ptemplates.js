@@ -63,7 +63,7 @@ function program3(depth0,data) {
     + " ";
   options = {hash:{},data:data};
   buffer += escapeExpression(((stack1 = helpers['_'] || depth0['_']),stack1 ? stack1.call(depth0, depth0.currency, "currency", options) : helperMissing.call(depth0, "_", depth0.currency, "currency", options)))
-    + "</span>\n						<form action=\"buy\" method=\"post\">\n							<div class=\"showcase__form-email-group qst__inp-group\">\n								<div class=\"showcase__form-email-cont qst__inp-cont\">\n									<input type=\"text\" value=\"";
+    + "</span>\n						<form action=\"purchase\" method=\"post\">\n							<div class=\"showcase__form-email-group qst__inp-group\">\n								<div class=\"showcase__form-email-cont qst__inp-cont\">\n									<input type=\"text\" value=\"";
   if (stack2 = helpers.customer_email) { stack2 = stack2.call(depth0, {hash:{},data:data}); }
   else { stack2 = depth0.customer_email; stack2 = typeof stack2 === functionType ? stack2.apply(depth0) : stack2; }
   buffer += escapeExpression(stack2)
@@ -73,7 +73,7 @@ function program3(depth0,data) {
     + "\" class=\"showcase__form-email qst__inp\" name=\"customer_email\" maxlength=\"50\">\n								</div>\n							</div>\n							<input type=\"submit\" class=\"hidden-submit\">\n						</form>\n						<p class=\"showcase__form-price-desc\">";
   options = {hash:{},data:data};
   buffer += escapeExpression(((stack1 = helpers['_'] || depth0['_']),stack1 ? stack1.call(depth0, "for notifications about your purchases<br/>and feedback", "itemedit", options) : helperMissing.call(depth0, "_", "for notifications about your purchases<br/>and feedback", "itemedit", options)))
-    + "</p>\n\n						<a class=\"showcase__form__buy-btn\" href=\"buy\"><span class=\"showcase__form__buy-btn-in\">";
+    + "</p>\n\n						<a class=\"showcase__form__buy-btn\" href=\"purchase\"><span class=\"showcase__form__buy-btn-in\">";
   options = {hash:{},data:data};
   buffer += escapeExpression(((stack1 = helpers['_'] || depth0['_']),stack1 ? stack1.call(depth0, "Buy", "itemedit", options) : helperMissing.call(depth0, "_", "Buy", "itemedit", options)))
     + "</span></a>\n						<span class=\"item__error\"></span>\n					</div>\n					<div class=\"showcase__form__bottom-row\">\n						<div class=\"showcase__form__bottom-row__col1\"><a href=\"http://qstoq.me\" target=\"_blank\">Qstoq</a> &mdash; ";
@@ -83,6 +83,63 @@ function program3(depth0,data) {
   options = {hash:{},data:data};
   buffer += escapeExpression(((stack1 = helpers['_'] || depth0['_']),stack1 ? stack1.call(depth0, "Safe payment", "item", options) : helperMissing.call(depth0, "_", "Safe payment", "item", options)))
     + "</span></div>\n					</div>\n					<div class=\"showcase__form__blocker\"></div>\n				</div>\n			</div>\n		</td>\n	</tr>\n</table>";
+  return buffer;
+  });
+
+this["qst"]["Templates"]["ptemplates"]["blocks/purchase"] = Handlebars.template(function (Handlebars,depth0,helpers,partials,data) {
+  this.compilerInfo = [4,'>= 1.0.0'];
+helpers = this.merge(helpers, Handlebars.helpers); data = data || {};
+  var buffer = "", stack1, stack2, functionType="function", escapeExpression=this.escapeExpression, helperMissing=helpers.helperMissing, self=this;
+
+function program1(depth0,data) {
+  
+  var buffer = "", stack1, stack2, options;
+  buffer += "\n		<h1 class=\"purchase__h\">";
+  options = {hash:{},data:data};
+  buffer += escapeExpression(((stack1 = helpers['_'] || depth0['_']),stack1 ? stack1.call(depth0, "Choose a payment method", "purchase", options) : helperMissing.call(depth0, "_", "Choose a payment method", "purchase", options)))
+    + "</h1>\n		<ul class=\"purchase__info-list\">\n		";
+  stack2 = helpers.each.call(depth0, ((stack1 = depth0.invoice),stack1 == null || stack1 === false ? stack1 : stack1.pay_methods), {hash:{},inverse:self.noop,fn:self.program(2, program2, data),data:data});
+  if(stack2 || stack2 === 0) { buffer += stack2; }
+  buffer += "\n		</ul>\n		";
+  return buffer;
+  }
+function program2(depth0,data) {
+  
+  var buffer = "", stack1;
+  buffer += "\n			<li class=\"purchase__info-item\"><a  class=\"purchase__info-item-a\" href=\"";
+  if (stack1 = helpers.system_id) { stack1 = stack1.call(depth0, {hash:{},data:data}); }
+  else { stack1 = depth0.system_id; stack1 = typeof stack1 === functionType ? stack1.apply(depth0) : stack1; }
+  buffer += escapeExpression(stack1)
+    + "\" rel=\"nofollow\" data-methodid=\"";
+  if (stack1 = helpers.method_id) { stack1 = stack1.call(depth0, {hash:{},data:data}); }
+  else { stack1 = depth0.method_id; stack1 = typeof stack1 === functionType ? stack1.apply(depth0) : stack1; }
+  buffer += escapeExpression(stack1)
+    + "\" data-systemid=\"";
+  if (stack1 = helpers.system_id) { stack1 = stack1.call(depth0, {hash:{},data:data}); }
+  else { stack1 = depth0.system_id; stack1 = typeof stack1 === functionType ? stack1.apply(depth0) : stack1; }
+  buffer += escapeExpression(stack1)
+    + "\">";
+  if (stack1 = helpers.method_name) { stack1 = stack1.call(depth0, {hash:{},data:data}); }
+  else { stack1 = depth0.method_name; stack1 = typeof stack1 === functionType ? stack1.apply(depth0) : stack1; }
+  buffer += escapeExpression(stack1)
+    + "</a></li>\n		";
+  return buffer;
+  }
+
+function program4(depth0,data) {
+  
+  var buffer = "", stack1, options;
+  buffer += "\n		<h2 class=\"purchase__h2\">";
+  options = {hash:{},data:data};
+  buffer += escapeExpression(((stack1 = helpers['_'] || depth0['_']),stack1 ? stack1.call(depth0, "No payment methods for this item :(", "purchase", options) : helperMissing.call(depth0, "_", "No payment methods for this item :(", "purchase", options)))
+    + "</h2>\n		";
+  return buffer;
+  }
+
+  buffer += "<div class=\"purchase__cont\">\n	<div class=\"purchase__row\">\n		";
+  stack2 = helpers['if'].call(depth0, ((stack1 = ((stack1 = depth0.invoice),stack1 == null || stack1 === false ? stack1 : stack1.pay_methods)),stack1 == null || stack1 === false ? stack1 : stack1.length), {hash:{},inverse:self.program(4, program4, data),fn:self.program(1, program1, data),data:data});
+  if(stack2 || stack2 === 0) { buffer += stack2; }
+  buffer += "\n	</div>\n</div>\n<div class=\"purchase__fader\"></div>";
   return buffer;
   });
 
@@ -103,8 +160,8 @@ function program1(depth0,data) {
   }
 
   buffer += "<form action=\"";
-  if (stack1 = helpers.submitUrl) { stack1 = stack1.call(depth0, {hash:{},data:data}); }
-  else { stack1 = depth0.submitUrl; stack1 = typeof stack1 === functionType ? stack1.apply(depth0) : stack1; }
+  if (stack1 = helpers.submit_url) { stack1 = stack1.call(depth0, {hash:{},data:data}); }
+  else { stack1 = depth0.submit_url; stack1 = typeof stack1 === functionType ? stack1.apply(depth0) : stack1; }
   buffer += escapeExpression(stack1)
     + "\" method=\"";
   if (stack1 = helpers.method) { stack1 = stack1.call(depth0, {hash:{},data:data}); }
@@ -155,6 +212,15 @@ helpers = this.merge(helpers, Handlebars.helpers); data = data || {};
   return "<div class=\"item__section-row\"></div>";
   });
 
+this["qst"]["Templates"]["ptemplates"]["pages/purchase-page"] = Handlebars.template(function (Handlebars,depth0,helpers,partials,data) {
+  this.compilerInfo = [4,'>= 1.0.0'];
+helpers = this.merge(helpers, Handlebars.helpers); data = data || {};
+  
+
+
+  return "<div class=\"purchase-row\"></div>";
+  });
+
 this["qst"]["Templates"]["ptemplates"]["popups/confirm"] = Handlebars.template(function (Handlebars,depth0,helpers,partials,data) {
   this.compilerInfo = [4,'>= 1.0.0'];
 helpers = this.merge(helpers, Handlebars.helpers); data = data || {};
@@ -195,7 +261,7 @@ helpers = this.merge(helpers, Handlebars.helpers); data = data || {};
   if (stack1 = helpers['class']) { stack1 = stack1.call(depth0, {hash:{},data:data}); }
   else { stack1 = depth0['class']; stack1 = typeof stack1 === functionType ? stack1.apply(depth0) : stack1; }
   buffer += escapeExpression(stack1)
-    + "\" tabindex=\"-1\">\n	<tr>\n		<td class=\"popup__td\">\n			<div class=\"popup__close\">\n				<div class=\"popup__close-col\">\n					<span class=\"close\">&times;</span>\n				</div>\n			</div>\n			<div class=\"popup__previous\">\n				<div class=\"popup__previous-col\">\n					<i class=\"prev\"></i>\n				</div>\n			</div>\n			<div class=\"popup__inner\">\n				<div class=\"popup__content\">\n					";
+    + "\" tabindex=\"-1\">\n	<tr>\n		<td class=\"popup__td\">\n			<div class=\"popup__close\">\n				<div class=\"popup__close-col\">\n					<span class=\"close\">&times;</span>\n				</div>\n			</div>\n			<div class=\"popup__previous\">\n				<div class=\"popup__previous-col\">\n					<i class=\"prev\"></i>\n				</div>\n			</div>\n			<div class=\"popup__inner\">\n				<div class=\"popup__content\">\n					<i class=\"qi qi-popup-close popup__close-btn\"></i>\n					";
   if (stack1 = helpers.content) { stack1 = stack1.call(depth0, {hash:{},data:data}); }
   else { stack1 = depth0.content; stack1 = typeof stack1 === functionType ? stack1.apply(depth0) : stack1; }
   if(stack1 || stack1 === 0) { buffer += stack1; }

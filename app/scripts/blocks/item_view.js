@@ -20,11 +20,6 @@ qst.ItemView = Backbone.View.extend({
 		this.model.on('change:customer_email', this.changeCustomerEmail, this);
 
 		this.lazy_loader = new qst.LazyLoader();
-
-		this.model.on('invoice:start', this.toggleBlockedOn, this);
-		this.model.on('invoice:error',  this.purchaseError, this);
-		// this.model.on('purchase:success', this.toggleBlockedOff, this);
-		this.model.on('purchase:error', this.purchaseError, this);
 	},
 
 	render: function(){
@@ -62,7 +57,7 @@ qst.ItemView = Backbone.View.extend({
 			this.model.set({
 				customer_email: email
 			});
-			this.model.invoice();
+			qst.navigate('/purchase/'+this.model.get('id'), {trigger: true});
 		}
 		return false;
 	},
@@ -110,22 +105,6 @@ qst.ItemView = Backbone.View.extend({
 		return false;
 	},
 
-	// invoiceSuccess: function() {
-	// 	console.log('invoice:success')
-	// },
-
-	purchaseError: function(error_obj) {
-		this.toggleBlockedOff();
-		this.showError(qst.localize('Something went wrong...', 'misc'), 'email');
-	},
-
-	toggleBlockedOn: function() {
-		this.$el.toggleClass('blocked', true);
-	},
-
-	toggleBlockedOff: function() {
-		this.$el.toggleClass('blocked', false);
-	},
 
 	clear: function() {
 		this.hideErrors();
@@ -139,13 +118,5 @@ qst.ItemView = Backbone.View.extend({
 			this.delegateEvents();
 		}
 	},
-
-	requestForm: function(form_obj) {
-		var template = this.template_form(form_obj),
-			$request_form = $(template);
-
-		$('body').append($request_form);
-		$request_form.submit();
-	}
 });
 

@@ -41,7 +41,13 @@ qst.App = Backbone.Model.extend({
 			name: 'item',
 			template: 'pages/item-page'
 		});
-		this.pages.add(this.itemedit);
+		this.pages.add(this.item);
+
+		this.purchase = new qst.PurchasePage({
+			name: 'purchase',
+			template: 'pages/purchase-page'
+		});
+		this.pages.add(this.purchase);
 
 		// Pages render on route
 		this.router.on('404', function () {
@@ -69,6 +75,17 @@ qst.App = Backbone.Model.extend({
 					this.item.render({
 						id: route[0]
 					});
+					break;
+
+				case 'purchase': 
+					if(this.router.route_passed <= 1) {
+							qst.navigate('/403', {trigger: true});
+					} else {
+						this.purchase.render({
+							id: route[0],
+							in_popup: true
+						});
+					}
 					break;
 
 				default:
