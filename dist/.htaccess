@@ -15,4 +15,5 @@ RewriteRule ^(scripts|styles|images|images_static|go|docs|templates|.*\.ico|.*\.
 RewriteCond %{HTTP_USER_AGENT} (yandex\w+|googlebot|adsbot-google|bingbot|msnbot|psbot|gigabot|twitterbot|linkedinbot|yahoo-mmcrawler|pingdom\.com_bot) [NC]
 RewriteRule (.*) http://162.243.45.86:3333/%1? [P]
 
+
 RewriteRule ^(.*)$ index.html [L]
