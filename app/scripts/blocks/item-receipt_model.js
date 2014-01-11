@@ -4,7 +4,7 @@ qst.ItemReceipt = Backbone.Model.extend({
 	
 	defaults: {
 		receipt_comment_id: 0,
-		receipt_comment: 'Thanks for purchasement',
+		receipt_comment: '',
 
 		amount: 100,
 		link_id: 0,
