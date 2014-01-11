@@ -13,11 +13,11 @@
 			<span class="receipt__form-price"><span class="receipt__form-price-val">{{_number_format price }}</span>&nbsp;{{_ currency 'currency'}}</span>
 			<h1 class="receipt__form-h"><a href="{{ url_short }}" target="_blank">{{ name }}</a></h1>
 			{{#if url}}
-				{{#if external}}
-					<span class="receipt__form__buy-btn"><a class="receipt__form__buy-btn-in" href="{{url}}" target="_blank">{{_ 'Get link' 'itemreceipt'}}</a></span>
-				{{else}}
+				{{#ifEq external '0'}}
 					<span class="receipt__form__buy-btn"><a class="receipt__form__buy-btn-in" href="{{url}}" target="_blank">{{_ 'Get file' 'itemreceipt'}}</a></span>
-				{{/if}}
+				{{else}}
+					<span class="receipt__form__buy-btn"><a class="receipt__form__buy-btn-in" href="{{url}}" target="_blank">{{_ 'Get link' 'itemreceipt'}}</a></span>
+				{{/ifEq}}
 			{{/if}}
 			<div class="receipt__form-receipt_desc-group qst__inp-group">
 				<div class="receipt__form-receipt_desc-cont qst__inp-cont">

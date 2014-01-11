@@ -9,10 +9,11 @@ helpers = this.merge(helpers, Handlebars.helpers); data = data || {};
 
 function program1(depth0,data) {
   
-  var buffer = "", stack1;
+  var buffer = "", stack1, stack2, options;
   buffer += "\n				";
-  stack1 = helpers['if'].call(depth0, depth0.external, {hash:{},inverse:self.program(4, program4, data),fn:self.program(2, program2, data),data:data});
-  if(stack1 || stack1 === 0) { buffer += stack1; }
+  options = {hash:{},inverse:self.program(4, program4, data),fn:self.program(2, program2, data),data:data};
+  stack2 = ((stack1 = helpers.ifEq || depth0.ifEq),stack1 ? stack1.call(depth0, depth0.external, "0", options) : helperMissing.call(depth0, "ifEq", depth0.external, "0", options));
+  if(stack2 || stack2 === 0) { buffer += stack2; }
   buffer += "\n			";
   return buffer;
   }
@@ -25,7 +26,7 @@ function program2(depth0,data) {
   buffer += escapeExpression(stack1)
     + "\" target=\"_blank\">";
   options = {hash:{},data:data};
-  buffer += escapeExpression(((stack1 = helpers['_'] || depth0['_']),stack1 ? stack1.call(depth0, "Get link", "itemreceipt", options) : helperMissing.call(depth0, "_", "Get link", "itemreceipt", options)))
+  buffer += escapeExpression(((stack1 = helpers['_'] || depth0['_']),stack1 ? stack1.call(depth0, "Get file", "itemreceipt", options) : helperMissing.call(depth0, "_", "Get file", "itemreceipt", options)))
     + "</a></span>\n				";
   return buffer;
   }
@@ -39,7 +40,7 @@ function program4(depth0,data) {
   buffer += escapeExpression(stack1)
     + "\" target=\"_blank\">";
   options = {hash:{},data:data};
-  buffer += escapeExpression(((stack1 = helpers['_'] || depth0['_']),stack1 ? stack1.call(depth0, "Get file", "itemreceipt", options) : helperMissing.call(depth0, "_", "Get file", "itemreceipt", options)))
+  buffer += escapeExpression(((stack1 = helpers['_'] || depth0['_']),stack1 ? stack1.call(depth0, "Get link", "itemreceipt", options) : helperMissing.call(depth0, "_", "Get link", "itemreceipt", options)))
     + "</a></span>\n				";
   return buffer;
   }
