@@ -1,16 +1,12 @@
 qst.ItemReceiptHolder = Backbone.Model.extend({
 	
 	url: '/v1/invoices/',
+	inter: 0,
 	
 	defaults: {
 		id: 0,
 		secret: 0,
-
-		link_id: 0,
-		amount: 0,
-
-
-		link: {},
+		state: -1,
 
 		receipt: {},
 	},
@@ -39,41 +35,59 @@ qst.ItemReceiptHolder = Backbone.Model.extend({
 
 		
 		if(response.success) {
-			var link = response.result.link;
-			if(!link) {
-				this.trigger('load:error');
-			} else {
-				var receipt_opts = {};
-				var receipt_obj = false;
-				_.forEach(link.preview, function(el, index) {
-					if(el.identifier === 'receipt_comment') {
-						receipt_obj = el;
-					}
-				})
-				opts = {
-					link_id: this.get('id'),
-					active: 		link.active,
-					name: 			link.name,
-					description: 	link.description,
-					url: 			link.url,
-					external: 		link.external,
-					url_short: 		link.url_short,
-					price: 			link.price,
-					price_pwyw: 	link.price_pwyw,
-					currency: 		link.currency,
-					ship_limit: 	link.ship_limit
-				}
-				if(!!receipt_obj
-					&& !!receipt_obj.data) {
-					opts.receipt_comment = receipt_obj.data;
-					opts.receipt_comment_id = receipt_obj.id;
-				}
+			var state = response.result.state;
+			this.set({state:state});
 
-				this.trigger('load:success', opts);
+			if(state == 0 || state == 1 ) {
+				// repeat of a delaid payment check
+				this.delaidFetch();
+			} else if (state == 3) {
+				// just show payment error
+			} else if(state == 2) {
+				var link = response.result.link;
+				if(!link) {
+					this.trigger('load:error');
+				} else {
+					var receipt_opts = {},
+						receipt_obj = false;
+					_.forEach(link.preview, function(el, index) {
+						if(el.identifier === 'receipt_comment') {
+							receipt_obj = el;
+						}
+					})
+					opts = {
+						link_id: this.get('id'),
+						active: 		link.active,
+						name: 			link.name,
+						description: 	link.description,
+						url: 			link.url,
+						external: 		link.external,
+						url_short: 		link.url_short,
+						price: 			link.price,
+						price_pwyw: 	link.price_pwyw,
+						currency: 		link.currency,
+						ship_limit: 	link.ship_limit
+					}
+					if(!!receipt_obj
+						&& !!receipt_obj.data) {
+						opts.receipt_comment = receipt_obj.data;
+						opts.receipt_comment_id = receipt_obj.id;
+					}
+
+					this.set({receipt: opts});
+					this.trigger('load:success', opts);
+				}
+			} else {
+				this.trigger('load:error');
 			}
 		} else {
 			this.trigger('load:error');
 		}
+	},
+
+	delaidFetch: function() {
+		clearInterval(this.inter);
+		this.inter = setTimeout(_.bind(this.fetch, this), 8000);
 	},
 
 	error: function (model, xhr, options) {

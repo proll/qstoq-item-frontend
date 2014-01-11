@@ -39,6 +39,7 @@ qst.FinishPage = qst.Page.extend({
 			this.itemreceiptholder.on('load:success', this.renderReceipt, this)
 			this.itemreceiptholder.on('load:error', this.error, this)
 			this.itemreceiptholder.fetch();
+			this.itemreceiptholder.on('change:state', this.view.describeState, this.view)
 
 			this.set('sleeped', false);
 		} else {

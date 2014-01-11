@@ -49,14 +49,14 @@
   clear: both;
 }
 .pseudo {
-  color: #0096ff;
-  border-bottom: 1px dotted #0096ff;
+  color: #158adb;
+  border-bottom: 1px dotted #158adb;
   cursor: pointer;
 }
 .pseudo .hover,
 .pseudo:hover {
-  color: #0096ff;
-  border-color: #0096ff;
+  color: #158adb;
+  border-color: #158adb;
 }
 .hide-text {
   font: 0/0 a;
@@ -284,12 +284,12 @@ body {
   background-color: #f8f8fa;
 }
 a {
-  color: #0096ff;
+  color: #158adb;
   text-decoration: none;
 }
 a:hover,
 a:focus {
-  color: #0096ff;
+  color: #158adb;
   text-decoration: underline;
 }
 .container {
@@ -370,10 +370,10 @@ BODY {
   height: 100%;
 }
 a {
-  color: #0096ff;
+  color: #158adb;
 }
 a:hover {
-  color: #0096ff;
+  color: #158adb;
 }
 .icon {
   position: relative;
@@ -422,21 +422,19 @@ h1 {
   color: #c81414;
 }
 .hsh {
-  color: #0096ff;
+  color: #158adb;
   text-decoration: none;
 }
 .hsh:hover {
-  color: #0096ff;
+  color: #158adb;
   text-decoration: underline;
 }
 .lnk,
 .unm {
-  color: #d34141;
   text-decoration: none;
 }
 .lnk:hover,
 .unm:hover {
-  color: #d34141;
   text-decoration: underline;
 }
 .lazy {

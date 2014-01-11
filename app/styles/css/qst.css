@@ -49,14 +49,14 @@
   clear: both;
 }
 .pseudo {
-  color: #0096ff;
-  border-bottom: 1px dotted #0096ff;
+  color: #158adb;
+  border-bottom: 1px dotted #158adb;
   cursor: pointer;
 }
 .pseudo .hover,
 .pseudo:hover {
-  color: #0096ff;
-  border-color: #0096ff;
+  color: #158adb;
+  border-color: #158adb;
 }
 .hide-text {
   font: 0/0 a;
@@ -284,12 +284,12 @@ body {
   background-color: #f8f8fa;
 }
 a {
-  color: #0096ff;
+  color: #158adb;
   text-decoration: none;
 }
 a:hover,
 a:focus {
-  color: #0096ff;
+  color: #158adb;
   text-decoration: underline;
 }
 .row {
@@ -472,10 +472,10 @@ BODY {
   height: 100%;
 }
 a {
-  color: #0096ff;
+  color: #158adb;
 }
 a:hover {
-  color: #0096ff;
+  color: #158adb;
 }
 .icon {
   position: relative;
@@ -524,21 +524,19 @@ h1 {
   color: #c81414;
 }
 .hsh {
-  color: #0096ff;
+  color: #158adb;
   text-decoration: none;
 }
 .hsh:hover {
-  color: #0096ff;
+  color: #158adb;
   text-decoration: underline;
 }
 .lnk,
 .unm {
-  color: #d34141;
   text-decoration: none;
 }
 .lnk:hover,
 .unm:hover {
-  color: #d34141;
   text-decoration: underline;
 }
 .lazy {
@@ -1128,7 +1126,7 @@ textarea::-webkit-input-placeholder {
 .warning__close {
   font-size: 18px;
   line-height: 1;
-  color: #0096ff;
+  color: #158adb;
   padding: 0;
   margin: 0;
   cursor: pointer;
@@ -1619,6 +1617,36 @@ textarea::-webkit-input-placeholder {
 .receipt__form-add-comment {
   display: none !important;
 }
+.invoice-state__cont {
+  display: none;
+  margin: 74px 40px 20px;
+}
+.invoice-state__item {
+  display: none;
+  text-align: center;
+}
+.state0 .invoice-state__cont {
+  display: block;
+}
+.state0 .invoice-state__0 {
+  display: block;
+}
+.state1 .invoice-state__cont {
+  display: block;
+}
+.state1 .invoice-state__1 {
+  display: block;
+}
+.state3 .invoice-state__cont {
+  display: block;
+  margin: 20px 40px 20px;
+}
+.state3 .invoice-state__3 {
+  display: block;
+}
+.state3 .page-finish {
+  background-image: none;
+}
 .receipt__cont {
   margin: 31px 39px 60px;
   overflow: hidden;
@@ -1925,13 +1953,11 @@ textarea::-webkit-input-placeholder {
 .error-page__list,
 .error-page__description {
   margin-top: 40px;
-  font-size: 22px;
-  line-height: 32px;
+  font-size: 16px;
+  line-height: 20px;
   color: #282828;
 }
 .error-page__list-item {
   margin-bottom: 10px;
-}
-.error-page__list-item:before {
-  content: '•	';
+  list-style: none;
 }

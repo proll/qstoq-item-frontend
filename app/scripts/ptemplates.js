@@ -302,10 +302,23 @@ helpers = this.merge(helpers, Handlebars.helpers); data = data || {};
 this["qst"]["Templates"]["ptemplates"]["pages/finish-page"] = Handlebars.template(function (Handlebars,depth0,helpers,partials,data) {
   this.compilerInfo = [4,'>= 1.0.0'];
 helpers = this.merge(helpers, Handlebars.helpers); data = data || {};
-  
+  var buffer = "", stack1, options, helperMissing=helpers.helperMissing, escapeExpression=this.escapeExpression;
 
 
-  return "<table class=\"finish__table\">\n	<tr>\n		<td>\n			<div class=\"item-receipt__cont\"></div>\n		</td>\n	</tr>\n</table>\n";
+  buffer += "<table class=\"finish__table\">\n	<tr>\n		<td>\n			<div class=\"item-receipt__cont\"></divv>\n			<ul class=\"invoice-state__cont\">\n				<li class=\"invoice-state__item invoice-state__0\">";
+  options = {hash:{},data:data};
+  buffer += escapeExpression(((stack1 = helpers['_'] || depth0['_']),stack1 ? stack1.call(depth0, "New", "finish", options) : helperMissing.call(depth0, "_", "New", "finish", options)))
+    + "</li>\n				<li class=\"invoice-state__item invoice-state__1\">";
+  options = {hash:{},data:data};
+  buffer += escapeExpression(((stack1 = helpers['_'] || depth0['_']),stack1 ? stack1.call(depth0, "Processing", "finish", options) : helperMissing.call(depth0, "_", "Processing", "finish", options)))
+    + "</li>\n				<li class=\"invoice-state__item invoice-state__2\">";
+  options = {hash:{},data:data};
+  buffer += escapeExpression(((stack1 = helpers['_'] || depth0['_']),stack1 ? stack1.call(depth0, "Ok", "finish", options) : helperMissing.call(depth0, "_", "Ok", "finish", options)))
+    + "</li>\n				<li class=\"invoice-state__item invoice-state__3\">";
+  options = {hash:{},data:data};
+  buffer += escapeExpression(((stack1 = helpers['_'] || depth0['_']),stack1 ? stack1.call(depth0, "Not paid", "finish", options) : helperMissing.call(depth0, "_", "Not paid", "finish", options)))
+    + "</li>\n			</ul>\n		</td>\n	</tr>\n</table>\n";
+  return buffer;
   });
 
 this["qst"]["Templates"]["ptemplates"]["pages/item-page"] = Handlebars.template(function (Handlebars,depth0,helpers,partials,data) {
