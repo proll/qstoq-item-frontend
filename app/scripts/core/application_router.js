@@ -19,6 +19,10 @@ qst.Router = Backbone.Router.extend({
 		"purchase/:id/": "purchase",
 		"purchase/:id": "purchase",
 
+
+		"r/:id/": "finish",
+		"r/:id":  "finish",
+
 		"404": "er404",
 		"403": "er403",
 

@@ -49,6 +49,12 @@ qst.App = Backbone.Model.extend({
 		});
 		this.pages.add(this.purchase);
 
+		this.finish = new qst.FinishPage({
+			name: 'finish',
+			template: 'pages/finish-page'
+		});
+		this.pages.add(this.finish);
+
 		// Pages render on route
 		this.router.on('404', function () {
 			that.pages.getPage('404').render();
@@ -77,6 +83,7 @@ qst.App = Backbone.Model.extend({
 					});
 					break;
 
+
 				case 'purchase': 
 					if(this.router.route_passed <= 1) {
 							qst.navigate('/403', {trigger: true});
@@ -85,6 +92,18 @@ qst.App = Backbone.Model.extend({
 							id: route[0],
 							in_popup: true
 						});
+					}
+					break;
+
+				case 'finish': 
+					var secret = _.getURLParameter('secret');
+					if(secret) {
+						this.finish.render({
+							id: route[0],
+							secret: secret
+						});
+					} else {
+						qst.navigate('/403', {trigger: true});
 					}
 					break;
 
@@ -113,8 +132,13 @@ qst.App = Backbone.Model.extend({
 
 				switch (prev_route) {
 					case 'item':
-						console.log('reset:itemedit');
-						this.itemedit.sleep();
+						console.log('reset:item');
+						this.item.sleep();
+						break;
+
+					case 'finish':
+						console.log('reset:finish');
+						this.finish.sleep();
 						break;
 
 					default:

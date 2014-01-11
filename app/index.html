@@ -77,11 +77,18 @@ var qst_dev = false;
 		files: [
 			"pages/item-page",
 			"blocks/item",
-
+			
 			"pages/purchase-page",
 			"blocks/purchase",
 
 			"misc/request-form",
+
+
+			"pages/finish-page",
+			"blocks/item-receipt-updater",
+			"blocks/item-receipt",
+
+
 			"pages/404-page",
 			"pages/403-page",
 			"popups/popup",
@@ -138,11 +145,19 @@ var qst_dev = false;
 	<script src="/scripts/blocks/purchase_view.js"></script>
 	<script src="/scripts/pages/purchase-page_model.js"></script>
 	<script src="/scripts/pages/purchase-page_view.js"></script>
+
+	<!-- Finish Page -->
+	<script src="/scripts/blocks/item-receipt-holder_model.js"></script>
+	<script src="/scripts/blocks/item-receipt_model.js"></script>
+	<script src="/scripts/blocks/item-receipt_view.js"></script>
+	<script src="/scripts/pages/finish-page_model.js"></script>
+	<script src="/scripts/pages/finish-page_view.js"></script>
 <!-- endbuild -->
 
 <!-- build:js /scripts/l10n.js -->
 	<script src="/scripts/l10n/l10n__plural.js"></script>
 	<script src="/scripts/l10n/l10n__item.js"></script>
+	<script src="/scripts/l10n/l10n__item-receipt.js"></script>
 	<script src="/scripts/l10n/l10n__itemedit.js"></script>
 	<script src="/scripts/l10n/l10n__purchase.js"></script>
 

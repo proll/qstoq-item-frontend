@@ -2,6 +2,101 @@ this["qst"] = this["qst"] || {};
 this["qst"]["Templates"] = this["qst"]["Templates"] || {};
 this["qst"]["Templates"]["ptemplates"] = this["qst"]["Templates"]["ptemplates"] || {};
 
+this["qst"]["Templates"]["ptemplates"]["blocks/item-receipt"] = Handlebars.template(function (Handlebars,depth0,helpers,partials,data) {
+  this.compilerInfo = [4,'>= 1.0.0'];
+helpers = this.merge(helpers, Handlebars.helpers); data = data || {};
+  var buffer = "", stack1, stack2, options, functionType="function", escapeExpression=this.escapeExpression, helperMissing=helpers.helperMissing, self=this;
+
+function program1(depth0,data) {
+  
+  var buffer = "", stack1;
+  buffer += "\n				";
+  stack1 = helpers['if'].call(depth0, depth0.external, {hash:{},inverse:self.program(4, program4, data),fn:self.program(2, program2, data),data:data});
+  if(stack1 || stack1 === 0) { buffer += stack1; }
+  buffer += "\n			";
+  return buffer;
+  }
+function program2(depth0,data) {
+  
+  var buffer = "", stack1, options;
+  buffer += "\n					<span class=\"receipt__form__buy-btn\"><a class=\"receipt__form__buy-btn-in\" href=\"";
+  if (stack1 = helpers.url) { stack1 = stack1.call(depth0, {hash:{},data:data}); }
+  else { stack1 = depth0.url; stack1 = typeof stack1 === functionType ? stack1.apply(depth0) : stack1; }
+  buffer += escapeExpression(stack1)
+    + "\">";
+  options = {hash:{},data:data};
+  buffer += escapeExpression(((stack1 = helpers['_'] || depth0['_']),stack1 ? stack1.call(depth0, "Get link", "itemreceipt", options) : helperMissing.call(depth0, "_", "Get link", "itemreceipt", options)))
+    + "</a></span>\n				";
+  return buffer;
+  }
+
+function program4(depth0,data) {
+  
+  var buffer = "", stack1, options;
+  buffer += "\n					<span class=\"receipt__form__buy-btn\"><a class=\"receipt__form__buy-btn-in\" href=\"";
+  if (stack1 = helpers.url) { stack1 = stack1.call(depth0, {hash:{},data:data}); }
+  else { stack1 = depth0.url; stack1 = typeof stack1 === functionType ? stack1.apply(depth0) : stack1; }
+  buffer += escapeExpression(stack1)
+    + "\">";
+  options = {hash:{},data:data};
+  buffer += escapeExpression(((stack1 = helpers['_'] || depth0['_']),stack1 ? stack1.call(depth0, "Get file", "itemreceipt", options) : helperMissing.call(depth0, "_", "Get file", "itemreceipt", options)))
+    + "</a></span>\n				";
+  return buffer;
+  }
+
+  buffer += "<div class=\"receipt__form-add-comment\">\n	<i class=\"is is-com receipt__form-add-comment__icn\"></i>\n	<ul class=\"receipt__form-add-comment__list\">\n		<li class=\"receipt__form-add-comment__add\"><a href=\"add\" rel=\"nofollow\" class=\"receipt__form-add-comment-a\">";
+  options = {hash:{},data:data};
+  buffer += escapeExpression(((stack1 = helpers['_'] || depth0['_']),stack1 ? stack1.call(depth0, "Add your<br/>message on the receipt", "itemreceipt", options) : helperMissing.call(depth0, "_", "Add your<br/>message on the receipt", "itemreceipt", options)))
+    + "</a></li>\n		<li class=\"receipt__form-add-comment__edit\"><a href=\"edit\" rel=\"nofollow\" class=\"receipt__form-add-comment-a\">";
+  options = {hash:{},data:data};
+  buffer += escapeExpression(((stack1 = helpers['_'] || depth0['_']),stack1 ? stack1.call(depth0, "Edit your message on the receipt", "itemreceipt", options) : helperMissing.call(depth0, "_", "Edit your message on the receipt", "itemreceipt", options)))
+    + "</a></li>\n	</ul>\n</div>\n<div class=\"receipt__cont\">\n	<div class=\"receipt__form-t\"></div>\n	<div class=\"receipt__form\">\n		<div class=\"receipt__form-col\">\n			<span class=\"receipt__form-line\">";
+  options = {hash:{},data:data};
+  buffer += escapeExpression(((stack1 = helpers['_'] || depth0['_']),stack1 ? stack1.call(depth0, "Purchased", "itemreceipt", options) : helperMissing.call(depth0, "_", "Purchased", "itemreceipt", options)))
+    + "</span>\n			<span class=\"receipt__form-price\"><span class=\"receipt__form-price-val\">";
+  options = {hash:{},data:data};
+  buffer += escapeExpression(((stack1 = helpers._number_format || depth0._number_format),stack1 ? stack1.call(depth0, depth0.price, options) : helperMissing.call(depth0, "_number_format", depth0.price, options)))
+    + "</span>&nbsp;";
+  options = {hash:{},data:data};
+  buffer += escapeExpression(((stack1 = helpers['_'] || depth0['_']),stack1 ? stack1.call(depth0, depth0.currency, "currency", options) : helperMissing.call(depth0, "_", depth0.currency, "currency", options)))
+    + "</span>\n			<h1 class=\"receipt__form-h\"><a href=\"";
+  if (stack2 = helpers.url_short) { stack2 = stack2.call(depth0, {hash:{},data:data}); }
+  else { stack2 = depth0.url_short; stack2 = typeof stack2 === functionType ? stack2.apply(depth0) : stack2; }
+  buffer += escapeExpression(stack2)
+    + "\" target=\"_blank\">";
+  if (stack2 = helpers.name) { stack2 = stack2.call(depth0, {hash:{},data:data}); }
+  else { stack2 = depth0.name; stack2 = typeof stack2 === functionType ? stack2.apply(depth0) : stack2; }
+  buffer += escapeExpression(stack2)
+    + "</a></h1>\n			";
+  stack2 = helpers['if'].call(depth0, depth0.url, {hash:{},inverse:self.noop,fn:self.program(1, program1, data),data:data});
+  if(stack2 || stack2 === 0) { buffer += stack2; }
+  buffer += "\n			<div class=\"receipt__form-receipt_desc-group qst__inp-group\">\n				<div class=\"receipt__form-receipt_desc-cont qst__inp-cont\">\n					<textarea value=\"\" class=\"receipt__form-receipt_desc qst__inp\" name=\"receipt_comment\">";
+  if (stack2 = helpers.receipt_comment) { stack2 = stack2.call(depth0, {hash:{},data:data}); }
+  else { stack2 = depth0.receipt_comment; stack2 = typeof stack2 === functionType ? stack2.apply(depth0) : stack2; }
+  buffer += escapeExpression(stack2)
+    + "</textarea>\n				</div>\n				<ul class=\"receipt__form-receipt_desc-action-list\"><li class=\"receipt__form-receipt_desc-action receipt__form-receipt_desc-action_cancel\"><a href=\"receipt-cancel\" rel=\"nofollow\" class=\"receipt__form-receipt_desc-action-a\">";
+  options = {hash:{},data:data};
+  buffer += escapeExpression(((stack1 = helpers['_'] || depth0['_']),stack1 ? stack1.call(depth0, "Cancel", "itemreceipt", options) : helperMissing.call(depth0, "_", "Cancel", "itemreceipt", options)))
+    + "</a></li><li class=\"receipt__form-receipt_desc-action receipt__form-receipt_desc-action_save\"><a href=\"receipt-save\" rel=\"nofollow\" class=\"receipt__form-receipt_desc-action-a\">";
+  options = {hash:{},data:data};
+  buffer += escapeExpression(((stack1 = helpers['_'] || depth0['_']),stack1 ? stack1.call(depth0, "Save", "itemreceipt", options) : helperMissing.call(depth0, "_", "Save", "itemreceipt", options)))
+    + "</a></li>\n				</ul>\n			</div>\n			<p class=\"receipt__form-desc\">";
+  if (stack2 = helpers.receipt_comment) { stack2 = stack2.call(depth0, {hash:{},data:data}); }
+  else { stack2 = depth0.receipt_comment; stack2 = typeof stack2 === functionType ? stack2.apply(depth0) : stack2; }
+  buffer += escapeExpression(stack2)
+    + "</p>\n			<p class=\"receipt__form-desc-static\">";
+  options = {hash:{},data:data};
+  buffer += escapeExpression(((stack1 = helpers['_'] || depth0['_']),stack1 ? stack1.call(depth0, "All purchasement info we&#39;ve sent to your email", "itemreceipt", options) : helperMissing.call(depth0, "_", "All purchasement info we&#39;ve sent to your email", "itemreceipt", options)))
+    + "</p>\n			<ul class=\"receipt__share\">\n				<li class=\"receipt__share-itm receipt__share-itm-title\">";
+  options = {hash:{},data:data};
+  buffer += escapeExpression(((stack1 = helpers['_'] || depth0['_']),stack1 ? stack1.call(depth0, "Share", "itemreceipt", options) : helperMissing.call(depth0, "_", "Share", "itemreceipt", options)))
+    + "</li>\n				<li class=\"receipt__share-itm\"><a class=\"receipt__share-itm-a\" rel=\"nofollow\" href=\"vk\"><i class=\"is is-shc-vk\"></i></a></li>\n				<li class=\"receipt__share-itm\"><a class=\"receipt__share-itm-a\" rel=\"nofollow\" href=\"facebook\"><i class=\"is is-shc-fb\"></i></a></li>\n				<li class=\"receipt__share-itm\"><a class=\"receipt__share-itm-a\" rel=\"nofollow\" href=\"twitter\"><i class=\"is is-shc-tw\"></i></a></li>\n			</ul>\n		</div>\n		<div class=\"receipt__service-desc\"><a href=\"http://qstoq.me\" target=\"_blank\">Qstoq</a> &mdash; ";
+  options = {hash:{},data:data};
+  buffer += escapeExpression(((stack1 = helpers['_'] || depth0['_']),stack1 ? stack1.call(depth0, "selling in lightning speed", "itemreceipt", options) : helperMissing.call(depth0, "_", "selling in lightning speed", "itemreceipt", options)))
+    + "</div>\n	</div>\n	<div class=\"receipt__form-b\"></div>\n</div>";
+  return buffer;
+  });
+
 this["qst"]["Templates"]["ptemplates"]["blocks/item"] = Handlebars.template(function (Handlebars,depth0,helpers,partials,data) {
   this.compilerInfo = [4,'>= 1.0.0'];
 helpers = this.merge(helpers, Handlebars.helpers); data = data || {};
@@ -201,6 +296,15 @@ helpers = this.merge(helpers, Handlebars.helpers); data = data || {};
   buffer += escapeExpression(((stack1 = helpers['_'] || depth0['_']),stack1 ? stack1.call(depth0, "or drop us a line to <a href=\"mailto:support@qstoq.me\" class=\"lnk\">support@qstoq.me.</a>", "p404", options) : helperMissing.call(depth0, "_", "or drop us a line to <a href=\"mailto:support@qstoq.me\" class=\"lnk\">support@qstoq.me.</a>", "p404", options)))
     + "</li>\n</ul>";
   return buffer;
+  });
+
+this["qst"]["Templates"]["ptemplates"]["pages/finish-page"] = Handlebars.template(function (Handlebars,depth0,helpers,partials,data) {
+  this.compilerInfo = [4,'>= 1.0.0'];
+helpers = this.merge(helpers, Handlebars.helpers); data = data || {};
+  
+
+
+  return "<table class=\"finish__table\">\n	<tr>\n		<td>\n			<div class=\"item-receipt__cont\"></div>\n		</td>\n	</tr>\n</table>\n";
   });
 
 this["qst"]["Templates"]["ptemplates"]["pages/item-page"] = Handlebars.template(function (Handlebars,depth0,helpers,partials,data) {

@@ -206,3 +206,8 @@ _.isDesktop = function() {
 	// }
 	return _.__is_desktop;
 }
+
+
+_.getURLParameter = function(name) {
+    return (RegExp(name + '=' + '(.+?)(&|$)').exec(location.search)||[,null])[1];
+}
