@@ -14,9 +14,9 @@
 			<h1 class="receipt__form-h"><a href="{{ url_short }}" target="_blank">{{ name }}</a></h1>
 			{{#if url}}
 				{{#if external}}
-					<span class="receipt__form__buy-btn"><a class="receipt__form__buy-btn-in" href="{{url}}">{{_ 'Get link' 'itemreceipt'}}</a></span>
+					<span class="receipt__form__buy-btn"><a class="receipt__form__buy-btn-in" href="{{url}}" target="_blank">{{_ 'Get link' 'itemreceipt'}}</a></span>
 				{{else}}
-					<span class="receipt__form__buy-btn"><a class="receipt__form__buy-btn-in" href="{{url}}">{{_ 'Get file' 'itemreceipt'}}</a></span>
+					<span class="receipt__form__buy-btn"><a class="receipt__form__buy-btn-in" href="{{url}}" target="_blank">{{_ 'Get file' 'itemreceipt'}}</a></span>
 				{{/if}}
 			{{/if}}
 			<div class="receipt__form-receipt_desc-group qst__inp-group">
