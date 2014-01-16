@@ -75,6 +75,7 @@ qst.ItemReceiptHolder = Backbone.Model.extend({
 					}
 
 					this.set({receipt: opts});
+					qst.app.statistic.trackProductSold(link.name);
 					this.trigger('load:success', opts);
 				}
 			} else {

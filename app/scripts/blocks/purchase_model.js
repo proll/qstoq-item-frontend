@@ -74,6 +74,7 @@ qst.Purchase = Backbone.Model.extend({
 			invoice_id: 	this.get('invoice_id'),
 			method_id: 		options.method_id
 		};
+		qst.app.statistic.trackProductTryToBuy(options.method_id);
 		
 		options.success  	= _.bind(this.purchaseSuccess, this);
 		options.error  		= _.bind(this.purchaseError, this);
