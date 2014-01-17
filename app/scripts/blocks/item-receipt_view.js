@@ -43,15 +43,37 @@ qst.ItemReceiptView = Backbone.View.extend({
 
 	clickShare: function(e) {
 		var social = $(e.currentTarget).attr('href'),
-			url = "http://api.addthis.com/oexchange/0.8/forward/" + social + "/offer?"
-			+"url=" + this.model.get('url_short')
-			+"&title=" + encodeURIComponent(this.model.get('name'))
-			+"&description=" + encodeURIComponent(this.model.get('description'))
-			+"&pubid=prolll"
-			+"&text=" + encodeURIComponent(this.model.get('description'))
-			+"&via=qstoq";
-		_.openWindow3(url, social, 480, 360);
+			description = encodeURIComponent(this.model.get('description')),
+			href = this.model.get('url_short'),
+			url = '',
+			image = (!!this.model.get('preview_obj')) ? this.model.get('preview_obj').data : 'http://qstoq.me/images_static/fav144.png';
 
+		if(social==='facebook' && !!window.FB) {
+			FB.ui({
+				method: "feed",
+				link: 	href,
+				caption: this.model.get('name'),
+				description: this.model.get('description'),
+				picture: image
+			});
+		} else {
+			if(social === 'vk') {
+				url = "http://vkontakte.ru/share.php?noparse=true&"
+			} else {	
+				url = "http://api.addthis.com/oexchange/0.8/forward/" + social + "/offer?"
+			}
+
+			url += ''
+				+"url=" + encodeURIComponent(href)
+				+"&title=" + encodeURIComponent(this.model.get('name'))
+				+"&description=" + encodeURIComponent(this.model.get('description'))
+				+"&pubid=prolll"
+				+"&text=" + encodeURIComponent(this.model.get('description'))
+				+"&via=qstoq"
+				+"&screenshot=" + image
+				+"&image=" + image;
+			_.openWindow3(url, social, 480, 360);
+		}
 		return false;
 	},
 
