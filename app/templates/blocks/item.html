@@ -10,7 +10,7 @@
 						</div>
 						{{/if}}
 						<h1 class="showcase__form-h" itemprop="name">{{ name }}</h1>
-						<p class="showcase__form-desc" itemprop="description">{{ description }}</p>
+						{{#if description}}<p class="showcase__form-desc" itemprop="description">{{ description }}</p>{{/if}}
 						{{#if preview_obj}}<span class="hidden showcase__form-image" itemprop="image">{{preview_obj.data}}</span>{{/if}}
 						<span class="hidden showcase__form-url" itemprop="url">{{url_short}}</span>
 						<ul class="showcase__share">
