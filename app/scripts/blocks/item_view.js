@@ -35,7 +35,7 @@ qst.ItemView = Backbone.View.extend({
 		this.delegateEvents();
 
 		// meta
-		$('title').text('qstoq - ' + this.model.get('name'));
+		$('title').text('Qstoq - ' + this.model.get('name'));
 		$('#og_title').attr('content', 'qstoq - ' + this.model.get('name'));
 		$('#og_url').attr('content', this.model.get('url_short'));
 		if(!!this.model.get('preview_obj') && this.model.get('preview_obj').data) {
@@ -113,14 +113,16 @@ qst.ItemView = Backbone.View.extend({
 			url = '',
 			image = (!!this.model.get('preview_obj')) ? this.model.get('preview_obj').data : 'http://qstoq.me/images_static/fav144.png';
 
-		if(social==='facebook' && !!window.FB) {
-			FB.ui({
-				method: "feed",
-				link: 	href,
-				caption: this.model.get('name'),
-				description: this.model.get('description'),
-				picture: image
-			});
+		if(social==='facebook') {
+			url = "https://www.facebook.com/dialog/feed?";
+			url += ''
+				+"link=" + encodeURIComponent(href)
+				+"&redirect_uri=" + encodeURIComponent(href)
+				+"&display=popup"
+				+"&app_id=137692866413480"
+				+"&caption=" + encodeURIComponent(this.model.get('name'))
+				+"&picture=" + image
+				+"&description=" + encodeURIComponent(this.model.get('description'));
 		} else {
 			if(social === 'vk') {
 				url = "http://vkontakte.ru/share.php?noparse=true&"
@@ -137,8 +139,8 @@ qst.ItemView = Backbone.View.extend({
 				+"&via=qstoq"
 				+"&screenshot=" + image
 				+"&image=" + image;
-			_.openWindow3(url, social, 480, 360);
 		}
+		_.openWindow3(url, social, 480, 360);
 		return false;
 	},
 
