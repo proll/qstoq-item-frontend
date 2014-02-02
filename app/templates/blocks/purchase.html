@@ -1,14 +1,47 @@
 <div class="purchase__cont">
 	<div class="purchase__row">
 		{{#if invoice.pay_methods.length}}
-		<h1 class="purchase__h">{{_ 'Choose a payment method' 'purchase'}}</h1>
-		<ul class="purchase__info-list">
-		{{#each invoice.pay_methods}}
-			<li class="purchase__info-item"><a  class="purchase__info-item-a" href="{{system_id}}" rel="nofollow" data-methodid="{{method_id}}" data-systemid="{{system_id}}">{{method_name}}</a></li>
-		{{/each}}
-		</ul>
+			<div class="purchase__col1">
+				<h1 class="purchase__h">{{_ 'Choose a payment method' 'purchase'}}</h1>
+				<ul class="purchase__category-list">
+				{{#each invoice.pay_categories}}
+					<li class="purchase__category-item"><span class="purchase__category-item-a" href="{{id}}"><i class="pc pc-{{id}}"></i><span class="purchase__category-item-title">{{name}}</span></span></li>
+				{{/each}}
+				</ul>
+			</div>
+			<div class="purchase__col2">
+				{{#each invoice.pay_categories}}
+				<ul class="purchase__method-list purchase__method-list-{{id}}">
+					{{#each methods}}
+					<li class="purchase__method-item">
+						<span class="purchase__method-item-a" href="{{system_id}}" rel="nofollow" data-methodid="{{method_id}}" data-systemid="{{system_id}}"{{#if params}}  data-misc="1"{{/if}}><i class="ps ps-{{method_id}}"></i><span class="purchase__method-item-title">{{method_name}}</span></span>
+						{{#if params}}
+						<div class="purchase__method-item-misc">
+								{{#each params}}
+								<form action="." class="purchase__method-item-misc-form">
+									<div class="qst__inp-cont">
+										<label>
+											<span class="qst__lbl">{{ label }}</span>
+											<div class="qst__inp-cont-in{{#ifEq type 'phone'}} qst__inp_cont_phone{{/ifEq}}">
+												<input type="text" data-type="{{ type }}" class="qst__inp" data-name="{{ name }}"{{#if length}} data-length="{{length}}" maxlength="{{length}}" {{/if}} name="{{../system_id}}_{{ name }}" value="">
+											</div>
+										</label>
+									</div>
+								{{/each}}
+								<input type="submit" class="hidden-submit">
+								<div class="purchase__method-item-misc-submit">
+									<button type="submit" class="purchase__method-item-misc-submit-btn">{{_ 'Next' 'purchase'}}</button>
+								</div>
+							</form>
+						</div>
+						{{/if}}
+					</li>
+					{{/each}}
+				</ul>
+				{{/each}}
+			</div>
 		{{else}}
-		<h2 class="purchase__h2">{{_ 'No payment methods for this item :(' 'purchase'}}</h2>
+			<h2 class="purchase__h2">{{_ 'No payment methods for this item :(' 'purchase'}}</h2>
 		{{/if}}
 	</div>
 </div>

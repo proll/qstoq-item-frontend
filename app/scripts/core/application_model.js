@@ -86,7 +86,11 @@ qst.App = Backbone.Model.extend({
 
 				case 'purchase': 
 					if(this.router.route_passed <= 1) {
+						if(!!route[0]) {
+							qst.navigate('/b'+route[0], {trigger: true});
+						} else {
 							qst.navigate('/403', {trigger: true});
+						}
 					} else {
 						this.purchase.render({
 							id: route[0],

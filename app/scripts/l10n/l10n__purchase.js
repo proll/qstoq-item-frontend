@@ -11,4 +11,10 @@ qst.l10n.purchase = {
 		en: "No payment methods for this item :(",
 		ru: "Не доступно ни одного метода оплаты :(",
 	},
+
+
+	'Next': {
+		en: "Next",
+		ru: "Продолжить",
+	},
 }

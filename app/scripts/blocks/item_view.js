@@ -48,6 +48,9 @@ qst.ItemView = Backbone.View.extend({
 	},
 
 	submit: function(e) {
+		if(!this.model.get('active')) {
+			return false;
+		}
 		var email = $.trim(this.$input_email.val());
 		if(!_.isEmail(email)) {
 			this.showError(qst.localize('Doesn&#39;t look like a valid email', 'item'), 'email')

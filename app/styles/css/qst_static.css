@@ -451,6 +451,9 @@ h1 {
 .load-bg {
   background: #f8f8fa url(/images/ani/spinner.gif) center center no-repeat;
 }
+.load-bg-transparent {
+  background: transparent url(/images/ani/spinner.gif) center center no-repeat;
+}
 .img-loaded.load-bg {
   background-image: none;
 }

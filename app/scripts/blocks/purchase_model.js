@@ -49,6 +49,48 @@ qst.Purchase = Backbone.Model.extend({
 			invoice: response.result,
 			invoice_id: response.result.id
 		});
+
+		var pay_methods = response.result.pay_methods,
+			pay_categories = [],
+			pay_;
+
+		// hack for misc params
+		_.map(pay_methods, function(el, i) {
+			if(el.method_id === 'qiwi') {
+				pay_methods[i].params = []
+				pay_methods[i].params.push({
+					name: 'qpayer',
+					type: 'phone',
+					label: 'Номер вашего Qiwi кошелька',
+					length: 10,
+				});
+			}
+		})
+
+		_.map(pay_methods, function(el, i) {
+			pay_categories.push(el.category_id);
+		})
+		pay_categories = _.unique(pay_categories);
+		pay_categories = 
+			_.map(pay_categories, function(el) {
+				var name = '',
+					obj = {
+						id: el,
+						methods: _.filter(pay_methods, function(method){
+							if(method.category_id === el) {
+								name = method.category;
+								return true;
+							} else {
+								return false;
+							}
+						})
+					}
+				obj.name = name;
+				return obj;
+			});
+
+		this.get('invoice').pay_categories = pay_categories;
+
 		this.trigger('invoice:success');
 	},
 
@@ -67,20 +109,18 @@ qst.Purchase = Backbone.Model.extend({
 	purchase: function (options) {
 		var data = this.toJSON();
 
-		options = options || {};
-		options.url = this.url_purchase;
-		options.type = 'post';
-		options.data = {
-			invoice_id: 	this.get('invoice_id'),
-			method_id: 		options.method_id
-		};
+		var opts = {};
+		opts.url = this.url_purchase;
+		opts.type = 'post';
+		opts.data = _.extend(options, {invoice_id: 	this.get('invoice_id')});
+
 		qst.app.statistic.trackProductTryToBuy(options.method_id);
 		
-		options.success  	= _.bind(this.purchaseSuccess, this);
-		options.error  		= _.bind(this.purchaseError, this);
+		opts.success  	= _.bind(this.purchaseSuccess, this);
+		opts.error  		= _.bind(this.purchaseError, this);
 		this.trigger('purchase:start');
 
-		return Backbone.Model.prototype.fetch.call(this, options);
+		return Backbone.Model.prototype.fetch.call(this, opts);
 	},
 
 	purchaseSuccess: function (model, response, options) {

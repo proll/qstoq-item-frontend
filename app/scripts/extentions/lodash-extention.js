@@ -57,6 +57,7 @@ _.decl = function (number, titles) {
 };
 
 _.toJSON = function (obj) {
+	// if(obj.length && obj.charAt && obj.charAt(0) === '<') return {};
 	if (typeof(obj) != 'object') obj = JSON.parse(obj);
 	return obj;
 }

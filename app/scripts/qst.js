@@ -152,7 +152,12 @@ Backbone.sync = function(method, model, options){
 	// 		}
 	// 	}
 	// }
-	// options.url = (options.url || (model.url && _.result(model, 'url'))) + "?" + _.map(credentials, function(value, key){ return key+"="+value}).join("&");
+	var credentials = {
+		// uid: 	qst.app.user.get("uid"),
+		// token: 	qst.app.user.get("token"),
+		lang: 	qst.language
+	}
+	options.url = (options.url || (model.url && _.result(model, 'url'))) + "?" + _.map(credentials, function(value, key){ return key+"="+value}).join("&");
     return Backbone._sync(method, model, options);
 }
 
