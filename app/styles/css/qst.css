@@ -1532,9 +1532,9 @@ textarea::-webkit-input-placeholder {
   line-height: 20px;
   font-weight: bold;
   color: #ec6751;
-  margin: 44px 0 0;
+  margin: 44px 0 0 20px;
   padding: 0;
-  text-align: center;
+  text-align: left;
 }
 .purchase__category-list,
 .purchase__method-list {
