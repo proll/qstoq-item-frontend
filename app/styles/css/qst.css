@@ -1534,6 +1534,7 @@ textarea::-webkit-input-placeholder {
   color: #ec6751;
   margin: 44px 0 0 20px;
   padding: 0;
+  width: 350px;
   text-align: left;
 }
 .purchase__category-list,

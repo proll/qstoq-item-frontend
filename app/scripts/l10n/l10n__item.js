@@ -15,5 +15,15 @@ qst.l10n.item = {
 	'No': {
 		en: 'No',
 		ru: 'Нет'
+	},
+
+	'Doesn&#39;t look like a valid email': {
+		en: 'Doesn&#39;t look like a valid email',
+		ru: 'Неправильный формат email'
+	},
+
+	'Too much': {
+		en: 'Too much',
+		ru: 'Слишком длинный адрес email'
 	}
 }
