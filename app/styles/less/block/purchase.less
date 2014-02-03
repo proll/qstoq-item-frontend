@@ -112,12 +112,6 @@
 				// 	text-decoration: none;
 				// }
 
-				// &:active,
-				// &:focus {
-				// 	color:@textColor;
-				// 	text-decoration: none;	
-				// 	#gradient>.vertical(@gray, @grayLighter11);
-				// }
 				&.active {
 					background-color: @grayLighter12;
 					.box-shadow(inset 0 2px 5px rgba(2,0,29, .1))
@@ -135,6 +129,8 @@
 					vertical-align: bottom;
 					margin-left: 14px;
 				}
+
+
 
 	.purchase__method-list {
 		padding: 30px 20px 30px 44px;
@@ -159,6 +155,12 @@
 					vertical-align: top;
 					float: left;
 					margin: 1px 0;
+				}
+
+				&:hover,
+				&:active,
+				&:focus {
+					text-decoration: underline;	
 				}
 			}
 

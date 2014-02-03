@@ -14,7 +14,7 @@
 				<ul class="purchase__method-list purchase__method-list-{{id}}">
 					{{#each methods}}
 					<li class="purchase__method-item">
-						<span class="purchase__method-item-a" href="{{system_id}}" rel="nofollow" data-methodid="{{method_id}}" data-systemid="{{system_id}}"{{#if params}}  data-misc="1"{{/if}}><i class="ps ps-{{method_id}}"></i><span class="purchase__method-item-title">{{method_name}}</span></span>
+						<span class="purchase__method-item-a" href="{{system_id}}" rel="nofollow" data-methodid="{{method_id}}" data-systemid="{{system_id}}"{{#if params}}  data-misc="1"{{/if}}><i class="ps ps-{{method_id}}"></i><span class="purchase__method-item-title"><span class="purchase__method-item-title-in">{{method_name}}</span></span></span>
 						{{#if params}}
 						<div class="purchase__method-item-misc">
 								{{#each params}}

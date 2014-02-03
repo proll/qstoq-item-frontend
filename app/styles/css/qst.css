@@ -1599,6 +1599,11 @@ textarea::-webkit-input-placeholder {
   float: left;
   margin: 1px 0;
 }
+.purchase__method-item-a:hover,
+.purchase__method-item-a:active,
+.purchase__method-item-a:focus {
+  text-decoration: underline;
+}
 .purchase__method-item-title {
   font-size: 18px;
   line-height: 1;
