@@ -849,7 +849,7 @@ textarea::-webkit-input-placeholder {
   background-position: 0px -132px;
 }
 .ps {
-  background: url("/images/sprites/ps-29d80.png") no-repeat 0 0;
+  background: url("/images/sprites/ps-ebf3f.png") no-repeat 0 0;
   vertical-align: text-top;
   display: inline-block;
 }
@@ -943,50 +943,55 @@ textarea::-webkit-input-placeholder {
   height: 16px;
   background-position: 0px -306px;
 }
-.ps-qiwi {
+.ps-pinpay {
   width: 16px;
   height: 16px;
   background-position: 0px -324px;
 }
-.ps-rtcomm {
+.ps-qiwi {
   width: 16px;
   height: 16px;
   background-position: 0px -342px;
 }
-.ps-svyaznoy {
+.ps-rtcomm {
   width: 16px;
   height: 16px;
   background-position: 0px -360px;
 }
-.ps-telem {
+.ps-svyaznoy {
   width: 16px;
   height: 16px;
   background-position: 0px -378px;
 }
-.ps-w1 {
+.ps-telem {
   width: 16px;
   height: 16px;
   background-position: 0px -396px;
 }
-.ps-wme {
+.ps-w1 {
   width: 16px;
   height: 16px;
   background-position: 0px -414px;
 }
-.ps-wmr {
+.ps-wme {
   width: 16px;
   height: 16px;
   background-position: 0px -432px;
 }
-.ps-wmz {
+.ps-wmr {
   width: 16px;
   height: 16px;
   background-position: 0px -450px;
 }
-.ps-ym {
+.ps-wmz {
   width: 16px;
   height: 16px;
   background-position: 0px -468px;
+}
+.ps-ym {
+  width: 16px;
+  height: 16px;
+  background-position: 0px -486px;
 }
 .qi {
   background: url("/images/sprites/qi-c28dd.png") no-repeat 0 0;
