@@ -16,6 +16,7 @@ qst.User = Backbone.Model.extend({
 		// this.settings.getGeoPosition();
 		
 		this.settings.on("error", function(err) {
+			this.clearSession();
 			this.trigger("user:error", err);
 		}, this)
 		
