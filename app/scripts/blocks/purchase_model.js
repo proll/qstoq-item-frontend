@@ -55,17 +55,17 @@ qst.Purchase = Backbone.Model.extend({
 			pay_;
 
 		// hack for misc params
-		_.map(pay_methods, function(el, i) {
-			if(el.method_id === 'qiwi') {
-				pay_methods[i].params = []
-				pay_methods[i].params.push({
-					name: 'qpayer',
-					type: 'phone',
-					label: 'Номер вашего Qiwi кошелька',
-					length: 10,
-				});
-			}
-		})
+		// _.map(pay_methods, function(el, i) {
+		// 	if(el.method_id === 'qiwi') {
+		// 		pay_methods[i].params = []
+		// 		pay_methods[i].params.push({
+		// 			name: 'qpayer',
+		// 			type: 'phone',
+		// 			label: 'Номер вашего Qiwi кошелька',
+		// 			length: 10,
+		// 		});
+		// 	}
+		// })
 
 		_.map(pay_methods, function(el, i) {
 			pay_categories.push(el.category_id);

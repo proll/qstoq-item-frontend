@@ -1680,7 +1680,10 @@ textarea::-webkit-input-placeholder {
   padding: 9px 9px 9px 0;
   margin-left: 46px;
   display: block;
-  width: auto;
+  width: 278px;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
 }
 .purchase__method-item-misc-form .qst__inp {
   border: none;
