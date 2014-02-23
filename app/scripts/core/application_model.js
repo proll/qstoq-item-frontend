@@ -60,6 +60,10 @@ qst.App = Backbone.Model.extend({
 			that.pages.getPage('404').render();
 		});
 
+		this.router.on('403', function () {
+			that.pages.getPage('403').render();
+		});
+
 		this.router.on('route', function (router, route, params) {
 			// console.log('route:' + router);
 			if(this.router.route_passed > 1) {
@@ -90,7 +94,7 @@ qst.App = Backbone.Model.extend({
 						if(!!route[0]) {
 							qst.navigate('/b'+route[0], {trigger: true});
 						} else {
-							qst.navigate('/403', {trigger: true});
+							qst.trigger('403');
 						}
 					} else {
 						this.purchase.render({
@@ -108,7 +112,7 @@ qst.App = Backbone.Model.extend({
 							secret: secret
 						});
 					} else {
-						qst.navigate('/403', {trigger: true});
+						qst.trigger('403');
 					}
 					break;
 
@@ -180,6 +184,10 @@ qst.App = Backbone.Model.extend({
 
 		qst.on('404', function () {
 			this.pages.getPage('404').render();
+		}, this);
+
+		qst.on('403', function () {
+			this.pages.getPage('403').render();
 		}, this);
 		
 		this.on('error', function (err) {
