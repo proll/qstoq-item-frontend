@@ -18,9 +18,11 @@ qst.ItemReceiptHolder = Backbone.Model.extend({
 	fetch: function() {
 		var options = {};
 
-		options.url = this.url + this.get('id') + '?secret=' + this.get('secret');
+		options.url = this.url + this.get('id');
 		options.type = 'get';
-		options.data = options.data || {};
+		options.data = options.data || {
+			secret: this.get('secret')
+		};
 
 		options.success  	= _.bind(this.success, this);
 		options.error  		= _.bind(this.error, this);

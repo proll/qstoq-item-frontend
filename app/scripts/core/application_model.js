@@ -69,6 +69,7 @@ qst.App = Backbone.Model.extend({
 			qst.trigger('route', router, route, params);
 
 			switch (router) {
+
 				case 'er404': 
 					this.pages.getPage('404').render();
 					break;
