@@ -110,7 +110,7 @@ function program1(depth0,data) {
   if (stack1 = helpers._empty_img) { stack1 = stack1.call(depth0, {hash:{},data:data}); }
   else { stack1 = depth0._empty_img; stack1 = typeof stack1 === functionType ? stack1.apply(depth0) : stack1; }
   buffer += escapeExpression(stack1)
-    + "\" alt=\"\" class=\"showcase__form__img lazy\" data-width=\"320\" data-height=\"180\" data-bg=\"1\" data-crop=\"1\" data-orig=\""
+    + "\" alt=\"\" class=\"showcase__form__img lazy\" data-orig=\""
     + escapeExpression(((stack1 = ((stack1 = depth0.preview_obj),stack1 == null || stack1 === false ? stack1 : stack1.data)),typeof stack1 === functionType ? stack1.apply(depth0) : stack1))
     + "\">\n						</div>\n						";
   return buffer;
@@ -119,11 +119,11 @@ function program1(depth0,data) {
 function program3(depth0,data) {
   
   var buffer = "", stack1;
-  buffer += "<p class=\"showcase__form-desc\" itemprop=\"description\">";
+  buffer += "<pre class=\"showcase__form-desc\" itemprop=\"description\">";
   if (stack1 = helpers.description) { stack1 = stack1.call(depth0, {hash:{},data:data}); }
   else { stack1 = depth0.description; stack1 = typeof stack1 === functionType ? stack1.apply(depth0) : stack1; }
   buffer += escapeExpression(stack1)
-    + "</p>";
+    + "</pre>";
   return buffer;
   }
 

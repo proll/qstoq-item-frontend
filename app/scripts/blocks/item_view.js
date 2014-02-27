@@ -49,6 +49,7 @@ qst.ItemView = Backbone.View.extend({
 
 	submit: function(e) {
 		if(!this.model.get('active')) {
+			this.showError(qst.localize('Link inactive', 'item'))
 			return false;
 		}
 		var email = $.trim(this.$input_email.val());

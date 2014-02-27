@@ -6,11 +6,11 @@
 					<div class="showcase__form__col1">
 						{{#if preview_obj}}
 						<div class="showcase__form__img-cont load-bg">
-							<img src="{{ _empty_img }}" alt="" class="showcase__form__img lazy" data-width="320" data-height="180" data-bg="1" data-crop="1" data-orig="{{ preview_obj.data }}">
+							<img src="{{ _empty_img }}" alt="" class="showcase__form__img lazy" data-orig="{{ preview_obj.data }}">
 						</div>
 						{{/if}}
 						<h1 class="showcase__form-h" itemprop="name">{{ name }}</h1>
-						{{#if description}}<p class="showcase__form-desc" itemprop="description">{{ description }}</p>{{/if}}
+						{{#if description}}<pre class="showcase__form-desc" itemprop="description">{{ description }}</pre>{{/if}}
 						{{#if preview_obj}}<span class="hidden showcase__form-image" itemprop="image">{{preview_obj.data}}</span>{{/if}}
 						<span class="hidden showcase__form-url" itemprop="url">{{url_short}}</span>
 						<ul class="showcase__share">

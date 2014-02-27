@@ -2196,17 +2196,12 @@ textarea::-webkit-input-placeholder {
 }
 .showcase__form__img-cont {
   width: 320px;
-  height: 180px;
   vertical-align: top;
   margin-bottom: 22px;
 }
 .showcase__form__img {
-  -webkit-background-size: cover;
-  -moz-background-size: cover;
-  -o-background-size: cover;
-  background-size: cover;
   width: 320px;
-  height: 180px;
+  height: auto;
 }
 .showcase__form-h {
   font-weight: bold;
@@ -2220,6 +2215,8 @@ textarea::-webkit-input-placeholder {
   line-height: 20px;
   margin: 0 0 40px 0;
   padding: 0;
+  white-space: pre-line;
+  font-family: Arial, sans-serif;
 }
 .showcase__form__col2 {
   padding: 32px 40px 45px;
@@ -2299,7 +2296,7 @@ textarea::-webkit-input-placeholder {
   overflow: hidden;
   font-size: 11px;
   line-height: 14px;
-  color: #82888c;
+  color: #82888C;
   clear: both;
 }
 .showcase__form__bottom-row a {

@@ -25,5 +25,10 @@ qst.l10n.item = {
 	'Too much': {
 		en: 'Too much',
 		ru: 'Слишком длинный адрес email'
+	},
+
+	'Link inactive': {
+		en: 'Sorry. Link inactive',
+		ru: 'Ссылка недоступна к покупке'
 	}
 }
