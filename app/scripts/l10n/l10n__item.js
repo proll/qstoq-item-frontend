@@ -28,7 +28,7 @@ qst.l10n.item = {
 	},
 
 	'Link inactive': {
-		en: 'Sorry. Link inactive',
-		ru: 'Ссылка недоступна к покупке'
+		en: 'Purchase inactive',
+		ru: 'Покупка недоступна'
 	}
 }
