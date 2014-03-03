@@ -6,11 +6,12 @@
 	<meta name="description" content="Создание виртуальных ценников и прием платежей за ваш контент или реальные товары и услуги">
 
 	<!-- Facebook -->
-	<meta property="og:title" content="QstoQ" />
+	<meta property="og:title" id="og_title" content="QstoQ" />
 	<meta property="og:type" content="website" />
 	<meta property="og:image" id="og_image" content="http://qstoq.me/images_static/fav144.png" />
+	<meta property="og:url" id="og_url" content="http://qstoq.me/" />
 	<meta property="og:site_name" content="Qstoq" />
-	<meta property="og:description" content="Создание виртуальных ценников и прием платежей за ваш контент или реальные товары и услуги"/>
+	<meta property="og:description" id="og_description" content="Создание виртуальных ценников и прием платежей за ваш контент или реальные товары и услуги"/>
 
 
 	<!-- Mobile readiness tags -->
@@ -49,6 +50,19 @@
 <div class="container" id="qst-container"></div>
 <footer></footer>
 <div id="fb-root"></div>
+
+
+<!-- build:js /scripts/vendor.js -->
+	<script src="/scripts/vendor/jquery/jquery.js"></script>
+
+	
+	<script src="/scripts/vendor/lodash.js"></script>
+	<script src="/scripts/vendor/backbone/backbone-0.9.10.js"></script>
+	<script src="/scripts/vendor/handlebars/handlebars.js"></script>
+	<script src="/scripts/extentions/lodash-extention.js"></script>
+	<script src="/scripts/extentions/handlebars-helpers.js"></script>
+<!-- endbuild -->
+
 <script type="text/javascript">
 var qst_dev = false;
 	templates = {
@@ -78,22 +92,15 @@ var qst_dev = false;
 	}
 </script>
 
-
-<!-- build:js /scripts/vendor.js -->
-	<script src="/scripts/vendor/jquery/jquery.js"></script>	
-	<script src="/scripts/vendor/lodash.js"></script>
-	<script src="/scripts/vendor/backbone/backbone-0.9.10.js"></script>
-	<script src="/scripts/vendor/handlebars/handlebars.js"></script>
-	<script src="/scripts/extentions/lodash-extention.js"></script>
-	<script src="/scripts/extentions/handlebars-helpers.js"></script>
-<!-- endbuild -->
 <!-- build:js /scripts/qst.js -->
 	<script src="/scripts/ptemplates.js"></script>
 
 
 	<!-- qstoq app -->
 	<script src="/scripts/qst.js"></script>
+
 	<script src="/scripts/core/lazy-loader.js"></script>
+
 	<script src="/scripts/core/page_model.js"></script>
 	<script src="/scripts/core/page_view.js"></script>
 	<script src="/scripts/core/pages_collection.js"></script>

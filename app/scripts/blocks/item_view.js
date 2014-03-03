@@ -35,8 +35,9 @@ qst.ItemView = Backbone.View.extend({
 		this.delegateEvents();
 
 		// meta
+		// TODO do on page-description.js
 		$('title').text('Qstoq - ' + this.model.get('name'));
-		$('#og_title').attr('content', 'qstoq - ' + this.model.get('name'));
+		$('#og_title').attr('content', 'Qstoq - ' + this.model.get('name'));
 		$('#og_url').attr('content', this.model.get('url_short'));
 		if(!!this.model.get('preview_obj') && this.model.get('preview_obj').data) {
 			$('#og_image').attr('content', this.model.get('preview_obj').data);
