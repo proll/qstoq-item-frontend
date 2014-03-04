@@ -2335,7 +2335,7 @@ textarea::-webkit-input-placeholder {
 }
 .showcase__share {
   list-style: none;
-  text-align: center;
+  text-align: left;
 }
 .showcase__share-itm {
   vertical-align: top;
