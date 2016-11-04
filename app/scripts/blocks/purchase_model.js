@@ -1,7 +1,7 @@
 qst.Purchase = Backbone.Model.extend({
 	
-	url_invoice: '/v1/invoices/',
-	url_purchase: '/v1/purchases/',
+	url_invoice: 'http://api.qstoq.ru/v1/invoices/',
+	url_purchase: 'http://api.qstoq.ru/v1/purchases/',
 	
 	defaults: {
 		// "id": XXX,

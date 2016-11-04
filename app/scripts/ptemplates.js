@@ -91,7 +91,7 @@ function program4(depth0,data) {
     + "</p>\n			<ul class=\"receipt__share\">\n				<li class=\"receipt__share-itm receipt__share-itm-title\">";
   options = {hash:{},data:data};
   buffer += escapeExpression(((stack1 = helpers['_'] || depth0['_']),stack1 ? stack1.call(depth0, "Share", "itemreceipt", options) : helperMissing.call(depth0, "_", "Share", "itemreceipt", options)))
-    + "</li>\n				<li class=\"receipt__share-itm\"><a class=\"receipt__share-itm-a\" rel=\"nofollow\" href=\"vk\"><i class=\"is is-shc-vk\"></i></a></li>\n				<li class=\"receipt__share-itm\"><a class=\"receipt__share-itm-a\" rel=\"nofollow\" href=\"facebook\"><i class=\"is is-shc-fb\"></i></a></li>\n				<li class=\"receipt__share-itm\"><a class=\"receipt__share-itm-a\" rel=\"nofollow\" href=\"twitter\"><i class=\"is is-shc-tw\"></i></a></li>\n			</ul>\n		</div>\n		<div class=\"receipt__service-desc\"><a href=\"http://qstoq.me\" target=\"_blank\">Qstoq</a> &mdash; ";
+    + "</li>\n				<li class=\"receipt__share-itm\"><a class=\"receipt__share-itm-a\" rel=\"nofollow\" href=\"vk\"><i class=\"is is-shc-vk\"></i></a></li>\n				<li class=\"receipt__share-itm\"><a class=\"receipt__share-itm-a\" rel=\"nofollow\" href=\"facebook\"><i class=\"is is-shc-fb\"></i></a></li>\n				<li class=\"receipt__share-itm\"><a class=\"receipt__share-itm-a\" rel=\"nofollow\" href=\"twitter\"><i class=\"is is-shc-tw\"></i></a></li>\n			</ul>\n		</div>\n		<div class=\"receipt__service-desc\"><a href=\"http://qstoq.ru\" target=\"_blank\">Qstoq</a> &mdash; ";
   options = {hash:{},data:data};
   buffer += escapeExpression(((stack1 = helpers['_'] || depth0['_']),stack1 ? stack1.call(depth0, "selling in lightning speed", "itemreceipt", options) : helperMissing.call(depth0, "_", "selling in lightning speed", "itemreceipt", options)))
     + "</div>\n	</div>\n	<div class=\"receipt__form-b\"></div>\n</div>";
@@ -182,7 +182,7 @@ function program5(depth0,data) {
     + "</p>\n\n						<a class=\"showcase__form__buy-btn\" href=\"purchase\"><span class=\"showcase__form__buy-btn-in\">";
   options = {hash:{},data:data};
   buffer += escapeExpression(((stack1 = helpers['_'] || depth0['_']),stack1 ? stack1.call(depth0, "Buy", "itemedit", options) : helperMissing.call(depth0, "_", "Buy", "itemedit", options)))
-    + "</span></a>\n						<span class=\"item__error\"></span>\n					</div>\n					<div class=\"showcase__form__bottom-row\">\n						<div class=\"showcase__form__bottom-row__col1\"><a href=\"http://qstoq.me\" target=\"_blank\">Qstoq</a> &mdash; ";
+    + "</span></a>\n						<span class=\"item__error\"></span>\n					</div>\n					<div class=\"showcase__form__bottom-row\">\n						<div class=\"showcase__form__bottom-row__col1\"><a href=\"http://qstoq.ru\" target=\"_blank\">Qstoq</a> &mdash; ";
   options = {hash:{},data:data};
   buffer += escapeExpression(((stack1 = helpers['_'] || depth0['_']),stack1 ? stack1.call(depth0, "selling in lightning speed", "itemedit", options) : helperMissing.call(depth0, "_", "selling in lightning speed", "itemedit", options)))
     + "</div>\n						<div class=\"showcase__form__bottom-row__col2\"><i class=\"is is-lock showcase__form__safe-icn\"></i><span class=\"showcase__form__safe-desc\">";
@@ -418,7 +418,7 @@ helpers = this.merge(helpers, Handlebars.helpers); data = data || {};
   buffer += escapeExpression(((stack1 = helpers['_'] || depth0['_']),stack1 ? stack1.call(depth0, "Make sure that URL entered correctly;", "p404", options) : helperMissing.call(depth0, "_", "Make sure that URL entered correctly;", "p404", options)))
     + "</li>\n	<li class=\"error-page__list-item\">";
   options = {hash:{},data:data};
-  buffer += escapeExpression(((stack1 = helpers['_'] || depth0['_']),stack1 ? stack1.call(depth0, "or drop us a line to <a href=\"mailto:support@qstoq.me\" class=\"lnk\">support@qstoq.me.</a>", "p404", options) : helperMissing.call(depth0, "_", "or drop us a line to <a href=\"mailto:support@qstoq.me\" class=\"lnk\">support@qstoq.me.</a>", "p404", options)))
+  buffer += escapeExpression(((stack1 = helpers['_'] || depth0['_']),stack1 ? stack1.call(depth0, "or drop us a line to <a href=\"mailto:support@qstoq.ru\" class=\"lnk\">support@qstoq.ru.</a>", "p404", options) : helperMissing.call(depth0, "_", "or drop us a line to <a href=\"mailto:support@qstoq.ru\" class=\"lnk\">support@qstoq.ru.</a>", "p404", options)))
     + "</li>\n</ul>";
   return buffer;
   });

@@ -143,7 +143,35 @@ input::-webkit-input-placeholder,textarea::-webkit-input-placeholder{color:#9696
 .pc-emoney{width:32px;height:32px;background-position:0px -66px;}
 .pc-ibank{width:32px;height:32px;background-position:0px -99px;}
 .pc-mobile{width:32px;height:32px;background-position:0px -132px;}
-.ps{background:url("/images/sprites/ps-d41d8.png") no-repeat 0 0;vertical-align:text-top;display:inline-block;}
+.ps{background:url("/images/sprites/ps-ebf3f.png") no-repeat 0 0;vertical-align:text-top;display:inline-block;}
+.ps-bitcoin{width:16px;height:16px;background-position:0px 0px;}
+.ps-bpetr{width:16px;height:16px;background-position:0px -18px;}
+.ps-bvtb24{width:16px;height:16px;background-position:0px -36px;}
+.ps-card_platzru{width:16px;height:16px;background-position:0px -54px;}
+.ps-elex{width:16px;height:16px;background-position:0px -72px;}
+.ps-euronet{width:16px;height:16px;background-position:0px -90px;}
+.ps-ialfa{width:16px;height:16px;background-position:0px -108px;}
+.ps-ihandy{width:16px;height:16px;background-position:0px -126px;}
+.ps-inteza{width:16px;height:16px;background-position:0px -144px;}
+.ps-ipsb{width:16px;height:16px;background-position:0px -162px;}
+.ps-irusstd{width:16px;height:16px;background-position:0px -180px;}
+.ps-kasnet{width:16px;height:16px;background-position:0px -198px;}
+.ps-mob_beeline{width:16px;height:16px;background-position:0px -216px;}
+.ps-mob_megafon{width:16px;height:16px;background-position:0px -234px;}
+.ps-mob_mts{width:16px;height:16px;background-position:0px -252px;}
+.ps-mob_tele2{width:16px;height:16px;background-position:0px -270px;}
+.ps-mobelement{width:16px;height:16px;background-position:0px -288px;}
+.ps-paypal{width:16px;height:16px;background-position:0px -306px;}
+.ps-pinpay{width:16px;height:16px;background-position:0px -324px;}
+.ps-qiwi{width:16px;height:16px;background-position:0px -342px;}
+.ps-rtcomm{width:16px;height:16px;background-position:0px -360px;}
+.ps-svyaznoy{width:16px;height:16px;background-position:0px -378px;}
+.ps-telem{width:16px;height:16px;background-position:0px -396px;}
+.ps-w1{width:16px;height:16px;background-position:0px -414px;}
+.ps-wme{width:16px;height:16px;background-position:0px -432px;}
+.ps-wmr{width:16px;height:16px;background-position:0px -450px;}
+.ps-wmz{width:16px;height:16px;background-position:0px -468px;}
+.ps-ym{width:16px;height:16px;background-position:0px -486px;}
 .qi{background:url("/images/sprites/qi-c28dd.png") no-repeat 0 0;vertical-align:text-top;display:inline-block;}
 @media only screen and (-webkit-min-device-pixel-ratio: 1.5),only screen and (min--moz-device-pixel-ratio: 1.5),only screen and (-o-min-device-pixel-ratio: 3/2),only screen and (min-device-pixel-ratio: 1.5){.qi{background:url("/images/sprites/qi-2x-c28dd.png") no-repeat 0 0;-webkit-background-size:38px 323px;-moz-background-size:38px 323px;-o-background-size:38px 323px;background-size:38px 323px;vertical-align:text-top;display:inline-block;}}.qi-add{width:14px;height:14px;background-position:0px 0px;}
 .qi-add_open{width:14px;height:14px;background-position:0px -15px;}

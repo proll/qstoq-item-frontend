@@ -1,6 +1,6 @@
 qst.Item = Backbone.Model.extend({
 	
-	url: 			'/v1/links/',
+	url: 			'http://api.qstoq.ru/v1/links/',
 	preview: null,
 	
 	defaults: {

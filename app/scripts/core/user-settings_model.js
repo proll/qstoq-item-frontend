@@ -1,5 +1,5 @@
 qst.UserSettings = Backbone.Model.extend({
-	url: "/v1/users/",
+	url: "http://api.qstoq.ru/v1/users/",
 
 	defaults: {
 		geo_position: null,
@@ -8,7 +8,7 @@ qst.UserSettings = Backbone.Model.extend({
 		// balance: "0",
 		// created: "2013-07-03 10:22:37",
 		// currency: "RUB",
-		// email: "info@qstoq.me",
+		// email: "info@qstoq.ru",
 		// id: "36",
 		// name: "Qstoq Admin",
 	},

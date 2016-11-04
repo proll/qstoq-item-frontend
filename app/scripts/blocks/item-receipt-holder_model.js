@@ -1,6 +1,6 @@
 qst.ItemReceiptHolder = Backbone.Model.extend({
 	
-	url: '/v1/invoices/',
+	url: 'http://api.qstoq.ru/v1/invoices/',
 	inter: 0,
 	
 	defaults: {

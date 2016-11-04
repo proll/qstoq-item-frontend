@@ -17,7 +17,7 @@ qst.l10n.finish = {
 	},
 
 	'Not paid': {
-		en: 'Payment isn\'t processed. If this text scared you, please, drop us a line to <a href="mailto:support@qstoq.me?payment" target="mail" class="lnk">support@qstoq.me.</a>',
-		ru: 'Оплата не прошла. Вероятно это не то что, вы ожидали здесь увидеть. Напишите нам на <a href="mailto:support@qstoq.me?payment" target="mail" class="lnk">support@qstoq.me</a> — разберемся'
+		en: 'Payment isn\'t processed. If this text scared you, please, drop us a line to <a href="mailto:support@qstoq.ru?payment" target="mail" class="lnk">support@qstoq.ru.</a>',
+		ru: 'Оплата не прошла. Вероятно это не то что, вы ожидали здесь увидеть. Напишите нам на <a href="mailto:support@qstoq.ru?payment" target="mail" class="lnk">support@qstoq.ru</a> — разберемся'
 	},
 }
